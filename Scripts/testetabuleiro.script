@@ -1,0 +1,208 @@
+// Script:    testetabuleiro.script
+// Autor:     Henrique Santiago
+// Data:      20/abr/2014
+// Propósito: Testar o módulo tabuleiro
+
+== Inicializar valores
+=declararparm   tabuleiro0  int 0
+=declararparm   tabuleiro1  int 1
+=declararparm	tabuleiro2  int	2  
+
+=declararparm   colunaA    string  "a"
+=declararparm   colunaB    string  "b"
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+
+== Criar o tabuleiro 0 
+=criartabuleiro      tabuleiro0
+
+== Inicializar tabuleiro 0
+=inicializartabuleiro  tabuleiro0
+
+== Obter peca do tabuleiro 0
+=obtercasa    tabuleiro0   1 colunaA pNULL
+=obtercasa    tabuleiro0   2 colunaA pNaoNULL
+=obtercasa    tabuleiro0   1 colunaB pNaoNULL
+=obtercasa    tabuleiro0   2 colunaB pNULL
+
+==destruir tabuleiro 0  
+=destruirtabuleiro   tabuleiro0
+
+==Criar dois tabuleiros  
+=criartabuleiro      tabuleiro0
+=criartabuleiro      tabuleiro1
+
+==Inicializar tabuleiro 1 
+=inicializartabuleiro	tabuleiro1
+
+==Inicializar tabuleiro inexistente
+=inicializartabuleiro	tabuleiro2
+=recuperar
+
+==obter peca de tabuleiro inexistente
+=obtercasa    	tabuleiro2   1 colunaA pNULL
+=recuperar
+=obtercasa	tabuleiro2   1 colunaA pNaoNULL
+=recuperar
+
+==obter peca de tabuleiro nao inicializado
+=obtercasa    tabuleiro0   1 colunaA pNULL
+=obtercasa    tabuleiro0   2 colunaA pNULL
+=obtercasa    tabuleiro0   1 colunaB pNULL
+=obtercasa    tabuleiro0   2 colunaB pNULL
+
+==obter todas as pecas de tabuleiro 1, linha1
+=obtercasa    tabuleiro1   1 colunaA pNULL
+=obtercasa    tabuleiro1   1 colunaB pNaoNULL
+=obtercasa    tabuleiro1   1 "c"     pNULL
+=obtercasa    tabuleiro1   1 "d"     pNaoNULL
+=obtercasa    tabuleiro1   1 "e"     pNULL
+=obtercasa    tabuleiro1   1 "f"     pNaoNULL
+=obtercasa    tabuleiro1   1 "g"     pNULL
+=obtercasa    tabuleiro1   1 "h"     pNaoNULL
+
+==obter todas as pecas de tabuleiro 1, linha2
+
+=obtercasa    tabuleiro1   2 colunaA pNaoNULL
+=obtercasa    tabuleiro1   2 colunaB pNULL
+=obtercasa    tabuleiro1   2 "c"     pNaoNULL
+=obtercasa    tabuleiro1   2 "d"     pNULL
+=obtercasa    tabuleiro1   2 "e"     pNaoNULL
+=obtercasa    tabuleiro1   2 "f"     pNULL
+=obtercasa    tabuleiro1   2 "g"     pNaoNULL
+=obtercasa    tabuleiro1   2 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha3
+=obtercasa    tabuleiro1   3 colunaA pNULL
+=obtercasa    tabuleiro1   3 colunaB pNULL
+=obtercasa    tabuleiro1   3 "c"     pNULL
+=obtercasa    tabuleiro1   3 "d"     pNULL
+=obtercasa    tabuleiro1   3 "e"     pNULL
+=obtercasa    tabuleiro1   3 "f"     pNULL
+=obtercasa    tabuleiro1   3 "g"     pNULL
+=obtercasa    tabuleiro1   3 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha4
+=obtercasa    tabuleiro1   4 colunaA pNULL
+=obtercasa    tabuleiro1   4 colunaB pNULL
+=obtercasa    tabuleiro1   4 "c"     pNULL
+=obtercasa    tabuleiro1   4 "d"     pNULL
+=obtercasa    tabuleiro1   4 "e"     pNULL
+=obtercasa    tabuleiro1   4 "f"     pNULL
+=obtercasa    tabuleiro1   4 "g"     pNULL
+=obtercasa    tabuleiro1   4 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha5
+=obtercasa    tabuleiro1   5 colunaA pNULL
+=obtercasa    tabuleiro1   5 colunaB pNULL
+=obtercasa    tabuleiro1   5 "c"     pNULL
+=obtercasa    tabuleiro1   5 "d"     pNULL
+=obtercasa    tabuleiro1   5 "e"     pNULL
+=obtercasa    tabuleiro1   5 "f"     pNULL
+=obtercasa    tabuleiro1   5 "g"     pNULL
+=obtercasa    tabuleiro1   5 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha6
+=obtercasa    tabuleiro1   6 colunaA pNULL
+=obtercasa    tabuleiro1   6 colunaB pNULL
+=obtercasa    tabuleiro1   6 "c"     pNULL
+=obtercasa    tabuleiro1   6 "d"     pNULL
+=obtercasa    tabuleiro1   6 "e"     pNULL
+=obtercasa    tabuleiro1   6 "f"     pNULL
+=obtercasa    tabuleiro1   6 "g"     pNULL
+=obtercasa    tabuleiro1   6 "h"     pNULL
+
+==obter todas as pecas de tabuleiro 1, linha7
+=obtercasa    tabuleiro1   7 colunaA pNULL
+=obtercasa    tabuleiro1   7 colunaB pNaoNULL
+=obtercasa    tabuleiro1   7 "c"     pNULL
+=obtercasa    tabuleiro1   7 "d"     pNaoNULL
+=obtercasa    tabuleiro1   7 "e"     pNULL
+=obtercasa    tabuleiro1   7 "f"     pNaoNULL
+=obtercasa    tabuleiro1   7 "g"     pNULL
+=obtercasa    tabuleiro1   7 "h"     pNaoNULL
+
+==obter todas as pecas de tabuleiro 1, linha8
+=obtercasa    tabuleiro1   8 colunaA pNaoNULL
+=obtercasa    tabuleiro1   8 colunaB pNULL
+=obtercasa    tabuleiro1   8 "c"     pNaoNULL
+=obtercasa    tabuleiro1   8 "d"     pNULL
+=obtercasa    tabuleiro1   8 "e"     pNaoNULL
+=obtercasa    tabuleiro1   8 "f"     pNULL
+=obtercasa    tabuleiro1   8 "g"     pNaoNULL
+=obtercasa    tabuleiro1   8 "h"     pNULL
+
+==Verificar obter peca de linha inexistente, maior que 8
+=obtercasa    tabuleiro1   9 colunaA  pNULL
+=obtercasa    tabuleiro1   20 colunaA pNULL
+=obtercasa    tabuleiro1   9 colunaB  pNULL
+
+==Verificar obter peca de linha inexistente, nula ou negativa
+=obtercasa    tabuleiro1   0 colunaA pNULL
+=obtercasa    tabuleiro1  -5 colunaA pNULL
+=obtercasa    tabuleiro1   0 colunaB pNULL
+
+==Verificar obter peca de coluna inexistente, "depois" de "h"
+=obtercasa    tabuleiro1   1 "i"     pNULL
+=obtercasa    tabuleiro1   1 "m"     pNULL
+=obtercasa    tabuleiro1   2 "i"     pNULL
+=obtercasa    tabuleiro1   3 "i"     pNULL
+=obtercasa    tabuleiro1   3 "j"     pNULL
+
+==Verificar setar casa
+=setarcasa    tabuleiro1   1 "a"
+=obtercasa    tabuleiro1   1 "a" pNaoNULL
+
+=setarcasa    tabuleiro1   1 "b"
+=obtercasa    tabuleiro1   1 "b" pNaoNULL
+
+==Verificar remover peca
+=removerpeca  tabuleiro1   1 "a"
+=obtercasa    tabuleiro1   1 "a" pNULL
+
+=removerpeca  tabuleiro1   1 "b"
+=obtercasa    tabuleiro1   1 "b" pNULL
+
+==Mover peca da linha 2, coluna g para linha 3,coluna h
+=obtercasa   tabuleiro1	   2 "g" pNaoNULL
+=removerpeca tabuleiro1    2 "g"
+=setarcasa   tabuleiro1    3 "h"
+=obtercasa   tabuleiro1    2 "g" pNULL
+=obtercasa   tabuleiro1    3 "h" pNaoNULL
+
+==Criar peca no tabuleiro 0, nao inicializado
+=setarcasa   tabuleiro0    1 colunaA
+=obtercasa   tabuleiro0    1 colunaA pNaoNULL
+
+==Mover peca pelo tabuleiro 0
+=removerpeca tabuleiro0    1 colunaA
+=setarcasa   tabuleiro0    2 colunaB
+=obtercasa   tabuleiro0    1 colunaA pNULL
+=obtercasa   tabuleiro0    2 colunaB pNaoNULL
+
+=removerpeca tabuleiro0    2 colunaB
+=setarcasa   tabuleiro0    3 colunaA
+=obtercasa   tabuleiro0    2 colunaB pNULL
+=obtercasa   tabuleiro0    3 colunaA pNaoNULL
+
+=removerpeca tabuleiro0    3 colunaA
+=setarcasa   tabuleiro0    4 colunaB
+=obtercasa   tabuleiro0    3 colunaA pNULL
+=obtercasa   tabuleiro0    4 colunaB pNaoNULL
+
+=removerpeca tabuleiro0    4 colunaB
+=setarcasa   tabuleiro0    8 "h"
+=obtercasa   tabuleiro0    4 colunaB pNULL
+=obtercasa   tabuleiro0    8 "h" pNaoNULL
+
+==destruir tabuleiros  
+=destruirtabuleiro   tabuleiro0
+=destruirtabuleiro   tabuleiro1
+
+==destruir tabuleiro  inexistente
+=destruirtabuleiro   tabuleiro2
+=recuperar
+
+// fim

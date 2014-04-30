@@ -1,0 +1,81 @@
+// Script:    testepeca.script
+// Autor:     Henrique Santiago
+// Data:      14/abr/2014
+// Propósito: Testar o módulo peça  
+
+== Inicializar valores
+=declararparm   peca0  int 0
+=declararparm   peca1  int 1
+=declararparm   peca2  int 2  
+=declararparm   peca3  int 3 
+
+=declararparm   caracterA    string  "x"
+=declararparm   caracterB    string  "o"
+
+=declararparm   Normal      int  0
+=declararparm   Dama        int  1
+
+
+== Criar a peca 0
+=criarpeca      peca0 Normal caracterA
+
+== Verificar ObterTipo relativo a peca inicial
+=obtertipo  peca0 Normal
+
+== Verificar ObterCaracter relativo a peca inicial
+=obtercaracter    peca0   caracterA
+
+== Setar tipo
+=setartipo     peca0   Dama
+
+== Obter tipo
+=obtertipo peca0 Dama
+
+== Setar Caracter
+=setarcaracter peca0 caracterB
+
+== Obter Caracter
+=obtercaracter peca0 caracterB
+
+=destruirpeca   peca0
+
+==Criar 3 pecas 
+=criarpeca peca1 Dama caracterA
+=criarpeca peca2 Normal caracterB
+=criarpeca peca3 Dama caracterB
+
+==Obter tipo 
+=obtertipo peca1 Dama
+=obtertipo peca2 Normal
+=obtertipo peca3 Dama
+
+==Verificar inexistencia da peca0 
+=obtertipo peca0 Normal
+=recuperar
+=obtertipo peca0 Dama
+=recuperar
+
+==destruir peca do meio 
+=destruirpeca peca2
+
+==destruir peca do início 
+=destruirpeca peca1
+
+==destruir peca do fim 
+=destruirpeca peca3
+
+==Verificar se as pecas foram destruidas 
+=obtertipo peca1 Dama
+=recuperar
+=obtertipo peca2 Normal
+=recuperar
+=obtertipo peca3 Dama
+=recuperar
+
+==Obter caracter de peca inexistente 
+=obtercaracter peca0 caracterA
+=recuperar
+=obtercaracter peca0 caracterB
+=recuperar
+
+// fim

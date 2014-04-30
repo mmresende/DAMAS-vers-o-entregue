@@ -1,0 +1,41 @@
+Data: 28/03/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: especificar os módulos, especificar as funções, projetar
+  Descrição da Tarefa Realizada: Ajudar Rafael nas especificações. Criar repositório no github e colocar os arquivos iniciais.
+
+Data: 01/04/2014
+  Horas Trabalhadas: 10min
+  Tipo Tarefa: revisar código do módulo
+  Descrição da Tarefa Realizada: Remoção dos comentários do lista.c e lista.h.
+
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: revisar código do módulo
+  Descrição da Tarefa Realizada: Mudar estilo de código dos arquivos lista.c e lista.h para o que será usado no resto do projeto.
+
+  Horas Trabalhadas: 40min
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar arquivos e contéúdo inicial dos módulos peça e tabuleiro. Atualizar relatórios e outros arquivos.
+
+Data: 13/04/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar módulos peça e tabuleiro.
+
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: redigir script de teste
+  Descrição da Tarefa Realizada: Criar arquivos de teste lista, peça, tabuleiro. Peça totalmente pronto, falta editar lista e fazer tabuleiro.
+
+Data: 21/04/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Atualizar repositório com as modificações do Marcelo
+
+Data: 26/04/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: redigir script de teste
+  Descrição da Tarefa Realizada: Criar teste testelistaint
+
+Data: 27/04/2014
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar TAB_setarPeca e colocar no teste

@@ -1,0 +1,26 @@
+# Composicao do programa exemplo de teste automatizado
+# Este exemplo utiliza o arcabouço completo 
+
+[Diretorios]
+
+Nome        =  TESTEPECA
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+
+[Modulos]
+testpeca.c
+peca.c
+
+[BuildInicio]
+/OUT:..\produto\TESTEPECA.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]

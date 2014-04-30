@@ -1,0 +1,52 @@
+﻿Data: 17/04/2014
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: estudar
+  Descrição da Tarefa Realizada: estudar o funcionamento do arcabouço e do gmake para melhor implementar as tarefas do trabalho
+
+Data: 19/04/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: elaborar ferramentas de apoio ao desenvolvimento (batches e makes do projeto). Modificar a estrutura de diretorios
+
+Data: 20/04/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: especificar os módulos, especificar as funções
+  Descrição da Tarefa Realizada: documentação do arquivo lista.h
+
+Data: 22/04/2014
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: especificar os módulos, especificar as funções, revisar      especificações, diagnosticar e corrigir problemas 	       encontrados
+  Descrição da Tarefa Realizada: especificação do arquivo lista.c. Revisar      especificação do arquivo lista.h.Corrigir erros encontrados no código      fonte.
+
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: especificar os módulos
+  Descrição da Tarefa Realizada: especificação dos arquivos testlista.c,      testpeca.c e testtabuleiro.c
+
+Data: 24/04/2014
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: revisar código do módulo
+  Descrição da Tarefa Realizada: revisar o código de tabuleiro.c, especificando      claramente as funções nele encapsuladas 
+
+Data: 25/04/2014
+  Horas Trabalhadas: 6h30
+  Tipo Tarefa: especificar os módulos, especificar funções, redigir script de      teste, revisar script de teste, realizar os testes 
+  Descrição da Tarefa Realizada: documentar os módulos testtabuleiro e testpeca,      expandir as respectivas massas de teste, realizar os      testes e corrigir os      erros encontrados nos scripts
+
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: codificar módulo 
+  Descrição da Tarefa Realizada: Alterar o código de testlista.c, implementando      as necessárias modificações para que possam ser testadas as funções      SetarValor e IrIndice e para a lista poder ser testada com armazenamento de      valores inteiros
+
+Data: 26/04/2014
+  Horas Trabalhadas: 2h30
+  Tipo Tarefa: codificar módulo 
+  Descrição da Tarefa Realizada: Continuar as alterações do código de      testlista.c, iniciadas no dia 25
+ 
+  Horas Trabalhadas: 30min
+  Tipo Tarefa: projetar 
+  Descrição da Tarefa Realizada: projetar batches necessarios para executar o teste de lista com inteiros
+
+Data: 27/04/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: codificar módulo, especificar funções 
+  Descrição da Tarefa Realizada: pequenas modificações em tabuleiro.h, tabuleiro.c, peca.c e peca.h para tratar de casos excepcionais
+ 

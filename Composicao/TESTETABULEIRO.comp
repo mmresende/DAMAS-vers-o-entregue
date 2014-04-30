@@ -1,0 +1,28 @@
+# Composicao do programa exemplo de teste automatizado
+# Este exemplo utiliza o arcabouço completo 
+
+[Diretorios]
+
+Nome        =  TESTETABULEIRO
+PathDefault =  ..\Fontes
+err         =  ..\Produto
+obj         =  ..\Objetos
+c           =  ..\Fontes
+h           =  ..\Fontes
+
+
+[Modulos]
+testtabuleiro.c
+tabuleiro.c
+lista.c
+peca.c
+
+[BuildInicio]
+/OUT:..\produto\TESTETABULEIRO.exe
+/INCREMENTAL:NO
+/MACHINE:IX86
+
+[BuildFim]
+ArcaboucoTeste.lib
+
+[Fim]
