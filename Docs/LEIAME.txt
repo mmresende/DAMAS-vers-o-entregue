@@ -68,7 +68,7 @@ Os seguintes diretórios são gerados ao dezipar:
 	  ser gerados aqui se forem executados os batches corretos
 
 -Scripts: contém os scripts de teste (.script). O arquivo estatisticas (.estat) será gerado
-    	  aqui após a execução dos testes.
+    	  aqui após a execução dos testes, sob certas circunstâncias (ver seções posteriores).
 
 
 Documentação
@@ -105,7 +105,8 @@ Há três formas de executar os testes:
    Se for passado o parâmetro /L, será gerado um arquivo .log com o resultado dos testes.
    Caso contrário, o resultado só será exibido na tela. 
    
-   EXEMPLO: TESTEPECA.exe/s..\scripts\testepeca
+   EXEMPLOS: TESTEPECA.exe/s..\scripts\testepeca
+	     TESTELISTA.exe/s..\scripts\testelista.script /L..\produto\TesteLista
 
 2. Execute o batch Testa.bat da pasta batches. Ele executará o teste de um dos módulos a
    partir de seu script. Para isso, deve-se usar a seguinte sintaxe: 
@@ -120,7 +121,7 @@ Há três formas de executar os testes:
    e tabuleiro a partir dos scripts testelista.script, testepeca.script e testetebuleiro.script, 
    respectivamente. Também irá gerar:
 
-   - os relatórios dos testes (.log) respectivos: TESTELISTA.log, TESTEPECA.log e TESTETABULEIRO.log
+   - os relatórios dos testes (.log) respectivos: TesteLista.log, TestePeca.log e TesteTabuleiro.log
      na pasta Produto;
    - o arquivo estatisticas.estat na pasta Scripts, se o executável exbestat existir e estiver na 
      pasta correta (Veja seção seguinte: compilação através dos batches);
