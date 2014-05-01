@@ -17,7 +17,7 @@
 *  
 *  $CRE Créditos
 *    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
-*    programas redigidos em C;
+*    programas redigidos em C;módulo Lista Duplamente Encadeada
 *  
 ***************************************************************************/
 

@@ -9,6 +9,6 @@ cd ..\ferramnt
 
 gmake/cTESTEPECA	/b..\Composicao	/pgmake
 gmake/cTESTETABULEIRO	/b..\Composicao	/pgmake
-gmake/cTesteLista	/b..\Composicao	/pgmake
+gmake/cTESTELISTA	/b..\Composicao	/pgmake
 
 popd

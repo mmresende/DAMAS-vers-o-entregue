@@ -1,7 +1,7 @@
 ##################################################
 ###
-### Diretivas de MAKE para o construto: TesteLista
-### Gerado a partir de: TesteLista.comp
+### Diretivas de MAKE para o construto: TESTELISTA
+### Gerado a partir de: TESTELISTA.comp
 ###
 ### ----- Arquivo gerado, NÃO EDITE!!! -----
 ###
@@ -9,7 +9,7 @@
 
 ### Nomes globais
 
-NOME            = TesteLista
+NOME            = TESTELISTA
 
 
 ### Nomes de paths
@@ -77,7 +77,7 @@ Construto : \
 
 ##################################################
 ###
-### Fim de diretivas MAKE para o construto: TesteLista
+### Fim de diretivas MAKE para o construto: TESTELISTA
 ###
 ##################################################
 

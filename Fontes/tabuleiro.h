@@ -78,7 +78,7 @@ typedef struct _Peca Peca;
 *
 *  $FV Valor retornado 
 *
-*        O valor retornado é um ponteiro para um tabuleiro 8 por 8, com 
+*                O valor retornado é um ponteiro para um tabuleiro 8 por 8, com 
 *		 todos os seus valores iguais a NULL
 *		 Se ocorreu algum erro, por exemplo falta de memória ou dados errados,
 *		 a função retornará NULL.
@@ -98,8 +98,7 @@ Tabuleiro *TAB_criar();
 *       Destroi um tabuleiro (8 listas duplamente encadeadas)
 *       
 *  $EP Parâmetros
-*       Recebe como entrada um ponteiro para um tabuleiro do
-*       tipo Tabuleiro definido neste próprio módulo.
+*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
 *
 *  $FV Valor retornado 
 *
@@ -123,10 +122,7 @@ void TAB_destruir(Tabuleiro *tabuleiro);
 *       ultimas linhas).
 *       
 *  $EP Parâmetros
-*
-*       Recebe como entrada um ponteiro para um tabuleiro do
-*       tipo Tabuleiro definido neste próprio módulo, estando as
-*       posiçoes do tabuleiro nulas ou não.
+*        $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
 *
 *  $FV Valor retornado 
 *
@@ -148,15 +144,12 @@ void TAB_inicializar(Tabuleiro *tabuleiro);
 *      tabuleiro (8 listas duplamente encadeadas)
 *       
 *  $EP Parâmetros
-*
-*       Recebe como entrada um ponteiro para um tabuleiro do
-*       tipo Tabuleiro definido neste próprio módulo, estando as
-*       posiçoes do tabuleiro nulas ou não.
+*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
 *
 *  $FV Valor retornado 
 *
-*        Imprime na tela de execução o tabuleiro com suas coordenadas
-*        de coluna e de linha.
+*        Não retorna um valor, imprime na tela de execução o tabuleiro
+*        com suas coordenadas de coluna e de linha.
 *
 *
 *
@@ -174,20 +167,19 @@ void TAB_imprimir(Tabuleiro *tabuleiro);
 *      associado a tal coordenada no tabuleiro
 *       
 *  $EP Parâmetros
-*
-*       Recebe como entrada um ponteiro para um tabuleiro do tipo
-*       Tabuleiro definido neste próprio módulo, a coordenada da linha
-*       e a coordenada da coluna da onde se quer obter o valor
+*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
+*       $P int linha - a coordenada da linha no tabuleiro
+*       $P int coluna - a coordenada da coluna no tabuleiro
 *
 *  $FV Valor retornado 
 *
 *        Utilizando as funções de manipulação do módulo lista retorna
 *        o valor associado as entradas de tabuleiro e coordenadas do
-*        mesmo.
-*		 Se a casa especificada não existir, retorna NULL. Isso pode ocorrer
-*		 devido a linha ou coluna especificadas como parâmetros estarem vazias
-*		 (criação inadequada de tabuleiro) ou não estarem de acordo com o tamanho
-*		 do tabuleiro (exemplo: foi passado como parâmetro a linha 9)		
+*        mesmo. Se a casa especificada não existir, retorna NULL. Isso
+*        pode ocorrer devido a linha ou coluna especificadas como
+*        parâmetros estarem vazias (criação inadequada de tabuleiro)
+*        ou não estarem de acordo com o tamanho do tabuleiro (exemplo:
+*        foi passado como parâmetro a linha 9)
 *
 *
 ***********************************************************************/
@@ -201,20 +193,18 @@ Peca *TAB_obterCasa(Tabuleiro *tabuleiro, int linha, char coluna);
 *  $ED Descrição da função
 *
 *      Se tabuleiro diferente de NULL e as linhas e colunas estiverem
-*      dentro as dimensões do tabuleiro (8x8), a função coloca a peça  
-*	   recebida como parâmetro na casa especificada.
-*	   Caso contrário, faz nada.
-*	   Também é usada para retirar uma peca de determinada casa, passando
-*	   O parâmetro NULL.
+*      dentro as dimensões do tabuleiro (8x8), a função coloca a peça
+*      recebida como parâmetro na casa especificada.  Caso contrário,
+*      faz nada.  Também é usada para retirar uma peca de determinada
+*      casa, passando O parâmetro NULL.
 *
 *  $EP Parâmetros
-*
-*       Recebe como entrada um ponteiro para um tabuleiro do tipo
-*       Tabuleiro definido neste próprio módulo, a coordenada da linha
-*       e a coordenada da coluna onde se quer setar o valor e a peca.
-*
-*		O parametro peca pode ser NULL, caso em que a funcao destruirá a peca
-*		localizada na casa epecificada. Se nao houver peca nessa casa, faz nada.
+*       $P Tabuleiro *tabuleiro - um ponteiro para tabuleiro (lista de lista, 8 por 8)
+*       $P int linha - a coordenada da linha no tabuleiro
+*       $P int coluna - a coordenada da coluna no tabuleiro
+*       $P Peca *peca - O parametro peca pode ser NULL, caso em que a funcao destruirá a peca
+*		        localizada na casa epecificada. Se nao houver peca nessa casa, faz nada.
+*                        Se não for NULL substitui o valor no tabuleiro pelo valor de peca
 *
 *
 ***********************************************************************/

@@ -3,7 +3,7 @@
 
 [Diretorios]
 
-Nome        =  TesteLista
+Nome        =  TESTELISTA
 PathDefault =  ..\Fontes
 err         =  ..\Produto
 obj         =  ..\Objetos
@@ -15,7 +15,7 @@ TestLista.c
 Lista.c
 
 [BuildInicio]
-/OUT:..\produto\TesteLista.exe
+/OUT:..\produto\TESTELISTA.exe
 /INCREMENTAL:NO
 /MACHINE:IX86
 

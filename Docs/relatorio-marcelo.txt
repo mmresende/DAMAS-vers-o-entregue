@@ -49,4 +49,15 @@ Data: 27/04/2014
   Horas Trabalhadas: 1h
   Tipo Tarefa: codificar módulo, especificar funções 
   Descrição da Tarefa Realizada: pequenas modificações em tabuleiro.h, tabuleiro.c, peca.c e peca.h para tratar de casos excepcionais
- 
+
+Data: 29/04/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: redigir script de teste, codificar modulo
+  Descrição da Tarefa Realizada: criar a diretiva de teste "=removerpeca", expandir a massa de teste de Testetabuleiro.script.
+
+
+Data: 30/04/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: revisar projetos
+  Descrição da Tarefa Realizada: Reprojetar alguns batches para que funcionem sem a pasta "ferramnt". Projetar o LEIAME. Arrumar
+o projeto para seu formato de entrega.

@@ -245,7 +245,7 @@ void TAB_setarCasa(Tabuleiro *tabuleiro, int linha, char coluna, Peca *peca)
 *      
 *  $EP Parâmetros 
 *
-*      Recebe como entrada um ponteiro de um determinado dado (sem tipo).
+*      $P void *pDado - um ponteiro para um tipo void (qualquer).
 *      
 *
 *  $FV Valor retornado 
@@ -262,12 +262,6 @@ void ListaExcluirPeca(void *pDado)
 
 /***************************************************************************
 *
-*  Função: TAB  -Excluindo uma lista
-*  ****/
-
-
-/***************************************************************************
-*
 *  $FC Função: TAB  -Excluir uma lista
 *
 *  $ED Descrição da função
@@ -278,8 +272,7 @@ void ListaExcluirPeca(void *pDado)
 *      
 *  $EP Parâmetros 
 *
-*      Recebe como entrada um ponteiro de uma determinada lista (linha)
-*      das 8 que o tabuleiro compõe.
+*      $P void *pDado - um ponteiro para um tipo void (qualquer).
 *      
 *
 *  $FV Valor retornado 

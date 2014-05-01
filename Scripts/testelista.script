@@ -1,18 +1,10 @@
-// Script:    TesteLista.script
-// Autor:     Arndt von Staa
-// Data:      02/abr/2008
-// Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada
-//
+// Script:    testelista.script
+// Autor:     Henrique Santiago
+// Data:      26/abr/2014
+// Propósito: Testar o módulo lista
 
 == Inicializar valores
 =declararparm   lista0  int 0
-=declararparm   lista1  int 1
-=declararparm   lista2  int 2
-
-=declararparm   str0    string  "abcdefg"
-=declararparm   str1    string  "qwerty"
-=declararparm   str2    string  "xxx"
-=declararparm   str3    string  "xpto"
 
 =declararparm   OK             int  0
 =declararparm   ListaVazia     int  1
@@ -27,86 +19,51 @@
 =criarlista      lista0 
 
 == Verificar ObterValor relativo a lista vazia
-=obtervalorelem  lista0   "???"     pNULL
+=obtervalorelem.int  lista0   -1 -1  pNULL
 
-== Inserir elemento em lista vazia
-=inselemantes    lista0   str0   OK
-=obtervalorelem  lista0   str0   pNaoNULL
+== Inserir elemento em lista vazia -- index1
+=inselemantes.int    lista0   1 2   OK
+=obtervalorelem.int  lista0   1 2   pNaoNULL
 
-== Inserir elemento após primeiro
-=inselemapos     lista0   str1   OK
-=obtervalorelem  lista0   str1   pNaoNULL
+== Inserir elemento após primeiro -- index2
+=inselemapos.int     lista0   3 4   OK
+=obtervalorelem.int  lista0   3 4   pNaoNULL
 
-== Inserir elemento antes do último
-=inselemantes    lista0   str2   OK
-=obtervalorelem  lista0   str2   pNaoNULL
+== Inserir elemento antes do último -- index3
+=inselemantes.int    lista0   5 6   OK
+=obtervalorelem.int  lista0   5 6   pNaoNULL
 
-== Excluir elemento do meio
-=obtervalorelem  lista0   str2   pNaoNULL
-=excluirelem     lista0             OK
+== Ir inicio
+=irinicio lista0
+
+== Procurar valor (indice 0 = NULL)
+=procurarvalor lista0 0 NaoAchou
+
+== Procurar valor (indice 1 = 1 2)
+=procurarvalor lista0 1 OK
+
+== Procurar valor (indice 3 = 5 6)
+=procurarvalor lista0 3 OK
+
+== Ir inicio
+=irinicio lista0
 
 == Excluir elemento do início
-=obtervalorelem  lista0   str0   pNaoNULL
+=obtervalorelem.int  lista0   1 2   pNaoNULL
+=excluirelem     lista0             OK
+
+== Excluir elemento do meio
+=obtervalorelem.int  lista0   5 6   pNaoNULL
 =excluirelem     lista0             OK
 
 == Excluir elemento final, único 
-=obtervalorelem  lista0   str1   pNaoNULL
+=obtervalorelem.int  lista0   3 4   pNaoNULL
 =excluirelem     lista0             OK
 
 == Ver se a lista ficou vazia
-=obtervalorelem  lista0   "???"     pNULL
+=obtervalorelem.int  lista0   -1 -1  pNULL
 
 == Destruir a lista
 =destruirlista   lista0
-
-== Criar uma lista com dois elementos
-=criarlista      lista1 
-=inselemapos     lista1   str0   OK
-=inselemapos     lista1   str1   OK
-
-== Esvaziar a lista e ver se ficou vazia
-=esvaziarlista   lista1
-=obtervalorelem  lista1   "???"     pNULL
-
-== Destruir a lista
-=destruirlista   lista1
-
-== Criar uma lista com quatro elementos
-=criarlista      lista2 
-=inselemapos     lista2   str0   OK
-=inselemapos     lista2   str1   OK
-=inselemapos     lista2   str2   OK
-=inselemapos     lista2   str3   OK
-
-== Verificar a lista de trás para diante
-=obtervalorelem  lista2   str3   pNaoNULL
-=avancarelem     lista2   -1     OK
-=obtervalorelem  lista2   str2   pNaoNULL
-=avancarelem     lista2   -1     OK
-=obtervalorelem  lista2   str1   pNaoNULL
-=avancarelem     lista2   -1     OK
-=obtervalorelem  lista2   str0   pNaoNULL
-=avancarelem     lista2   -1     FimLista
-
-== Verificar a lista de frente para trás
-=obtervalorelem  lista2   str0   pNaoNULL
-=avancarelem     lista2   1      OK
-=obtervalorelem  lista2   str1   pNaoNULL
-=avancarelem     lista2   1      OK
-=obtervalorelem  lista2   str2   pNaoNULL
-=avancarelem     lista2   1      OK
-=obtervalorelem  lista2   str3   pNaoNULL
-=avancarelem     lista2   1      FimLista
-
-== Verificar a lista andando demais de trás para diante
-=avancarelem     lista2   -10     FimLista
-=obtervalorelem  lista2   str0   pNaoNULL
-
-== Verificar a lista andando demais de frente para trás
-=avancarelem     lista2   10     FimLista
-=obtervalorelem  lista2   str3   pNaoNULL
-
-== Destruir a lista
-=destruirlista   lista2
 
 // fim

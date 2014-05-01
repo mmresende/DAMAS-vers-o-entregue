@@ -27,7 +27,7 @@
 *
 *  $CRE Créditos
 *    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
-*    programas redigidos em C;
+*    programas redigidos em C;módulo Lista Duplamente Encadeada
 *  
 ***************************************************************************/
 
@@ -74,8 +74,8 @@ typedef struct _Peca Peca;
 *  
 *  $EP Parâmetros
 *
-*        Recebe o tipo da peca estipulado em PecaTipo, e
-*       recebe um caracter indicador 'x' ou 'o'.
+*        $P PecaTipo tipo - define PecaNormal e PecaDama
+*       $P char caracter -  um caracter indicador 'x' ou 'o'.
 *
 *  $FV Valor retornado 
 *
@@ -97,7 +97,8 @@ Peca *PEC_criar(PecaTipo tipo, char caracter);
 *  
 *  $EP Parâmetros
 *
-*       Recebe um ponteiro de peca do tipo estruturado Peca.
+*       $P Peca* peca - um ponteiro que representa uma peça do tipo
+*                       estruturado Peca.
 *
 *  $FV Valor retornado 
 *
@@ -118,7 +119,9 @@ void PEC_destruir(Peca *peca);
 *  
 *  $EP Parâmetros
 *
-*       Recebe um ponteiro de peca do tipo estruturado Peca.
+*       $P Peca* peca - um ponteiro que representa uma peça do tipo
+*                       estruturado Peca.
+*
 *
 *  $FV Valor retornado 
 *
@@ -139,7 +142,9 @@ void PEC_imprimir(Peca *peca);
 *  
 *  $EP Parâmetros
 *
-*       Recebe um ponteiro de peca do tipo estruturado Peca.
+*       $P Peca* peca - um ponteiro que representa uma peça do tipo
+*                       estruturado Peca.
+*
 *
 *  $FV Valor retornado 
 *
@@ -160,8 +165,9 @@ PecaTipo PEC_obterTipo(Peca *peca);
 *  
 *  $EP Parâmetros
 *
-*       Recebe um ponteiro de peca do tipo estruturado Peca e o tipo
-*       da peça (PecaTipo) a ser mudado.
+*       $P Peca* peca - um ponteiro que representa uma peça do tipo
+*                       estruturado Peca.
+*       $P PecaTipo tipo - define PecaNormal e PecaDama
 *
 *  $FV Valor retornado 
 *
@@ -182,8 +188,8 @@ void PEC_setarTipo(Peca *peca, PecaTipo tipo);
 *       que possui um tipo de estrutura Peca.
 *  
 *  $EP Parâmetros
-*
-*       Recebe um ponteiro de peca do tipo estruturado Peca.
+*      $P Peca* peca - um ponteiro que representa uma peça do tipo
+*                       estruturado Peca.
 *
 *  $FV Valor retornado 
 *
@@ -203,10 +209,10 @@ char PEC_obterCaracter(Peca *peca);
 *       estrutura Peca.
 *  
 *  $EP Parâmetros
+*      $P Peca* peca - um ponteiro que representa uma peça do tipo
+*                       estruturado Peca.
 *
-*       Recebe um ponteiro de peca do tipo estruturado Peca e o caracter identificador
-*       da peça (char) a ser mudado.
-*
+*      $P char caracter -  um caracter indicador 'x' ou 'o'.
 *  $FV Valor retornado 
 *
 *        Não retorna um valor, simplesmente muda o valor do caracter da peca

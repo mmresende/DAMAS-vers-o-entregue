@@ -420,6 +420,9 @@ void LiberarElemento(LIS_tppLista pLista , tpElemLista *pElem)
 /***********************************************************************
 *
 *  $FC Função: LIS  -Criar o elemento
+*  $ED Descrição da função
+*     Cria os espaços apontados pelo valor do elemento e o
+*     próprio elemento.
 *
 ***********************************************************************/
 
@@ -442,6 +445,10 @@ tpElemLista * CriarElemento(LIS_tppLista pLista , void * pValor)
 /***********************************************************************
 *
 *  $FC Função: LIS  -Limpar a cabeça da lista
+*  $ED Descrição da função
+*     
+*     Elimina os todos os espaços apontados pelo elemento de tipo
+*     estruturado LIS_tppLista.
 *
 ***********************************************************************/
 

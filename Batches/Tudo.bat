@@ -7,9 +7,18 @@ goto sai
 
 :faz
 
-Cls
+cls
 
-Call  Limpatudo
+if exist ..\ferramnt goto Compila&Testa 
+
+Call  Limpa
+Call  TestaTudo
+
+goto sai
+
+:Compila&Testa
+
+Call  Limpa
 Call  Geratudo
 Call  Compilatudo
 Call  TestaTudo

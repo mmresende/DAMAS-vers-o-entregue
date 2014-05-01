@@ -1,4 +1,4 @@
-/OUT:..\produto\TesteLista.exe
+/OUT:..\produto\TESTELISTA.exe
 /INCREMENTAL:NO
 /MACHINE:IX86
 TestLista.obj  Lista.obj  

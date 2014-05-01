@@ -37,7 +37,7 @@ no arquivo.zip. Isto criará a estrutura de diretórios utilizada e copiará:
 -os arquivos batch (.bat) que auxiliam na compilação e teste dos construtos;
 -os scripts de composição (.comp), de make e arquivos script .build para o linker
 gerados pelo utilitário GMAKE;
--os programas executáveis TesteLista.exe, TestePeca.exe e TesteTabuleiro.exe
+-os programas executáveis TesteLista.exe, TestePeca.exe e TesteTabuleiro.exe;
 -arquivos .pdf com modelo físico da estrutura completa e a arquitetura do programa;
 -arquivos .txt com os relatórios de cada componente do grupo.
 
@@ -63,8 +63,9 @@ Os seguintes diretórios são gerados ao dezipar:
           recerão aqui caso sejam rodados os batches corretos.
 
 -Produto: contém os executáveis gerados após a compilação dos módulos. Eles implementam os
-	  testes dos módulos. Os resultados dos testes (arquivos .txt e .err) irão aparecer
-	  aqui depois que os testes forem rodados.
+	  testes dos módulos. Os resultados dos testes (arquivos .log) irão aparecer
+	  aqui depois que os testes forem rodados. Arquivos com formato .err também deverão 
+	  ser gerados aqui se forem executados os batches corretos
 
 -Scripts: contém os scripts de teste (.script). O arquivo estatisticas (.estat) será gerado
     	  aqui após a execução dos testes.
@@ -93,22 +94,36 @@ Os testes devem ser executados a partir da janela de linha de comando do Windows
 É provável que seja necessário alterar parâmetros de ambiente requeridos pelo compilador.
 O batch vsvars32.bat, disponibilizado pelo visual studio deve ser executado antes de executar
 os batches.
-Há duas formas de executar os testes:
+Há três formas de executar os testes:
 
-1. Na pasta Produto (onde estão os executáveis), execute o comando:    TESTE*.exe/S..scripts\Teste*.script.
-   TESTE*.exe e Teste*.script devem corresponder aos arquivos .exe que se quer testar e seu       respectivo script de teste, existente na pasta script.
+1. Na pasta Produto (onde estão os executáveis), execute o comando:
+	TESTE*.exe/S..\scripts\teste*.script /L..\produto\Teste*
    
-   EXEMPLO: TESTEPECA/s..\scripts\Testepeca
+   TESTE*.exe e teste*.script devem corresponder aos arquivos .exe que se quer testar e seu
+   respectivo script de teste, existente na pasta script.
 
-2. Execute o batch TestaTudo da pasta batches. Ele executará os testes dos módulos lista, peca 
+   Se for passado o parâmetro /L, será gerado um arquivo .log com o resultado dos testes.
+   Caso contrário, o resultado só será exibido na tela. 
+   
+   EXEMPLO: TESTEPECA.exe/s..\scripts\testepeca
+
+2. Execute o batch Testa.bat da pasta batches. Ele executará o teste de um dos módulos a
+   partir de seu script. Para isso, deve-se usar a seguinte sintaxe: 
+	
+	Testa.bat  <NomePrograma> <NomeScript> [l].
+   
+   Exemplo: Testa.bat TESTEPECA testepeca
+   
+   Se for passado [l], será gerado o arquivo .log do arquivo testado, na pasta Produtos.
+
+3. Execute o batch TestaTudo.bat da pasta batches. Ele executará os testes dos módulos lista, peca 
    e tabuleiro a partir dos scripts testelista.script, testepeca.script e testetebuleiro.script, 
    respectivamente. Também irá gerar:
-   - o arquivo estatisticas.estat na pasta Scripts;
-   - os relatórios dos testes (.txt) respectivos: TesteLista.txt, TestePECA.txt e Testetabuleiro.txt
+
+   - os relatórios dos testes (.log) respectivos: TESTELISTA.log, TESTEPECA.log e TESTETABULEIRO.log
      na pasta Produto;
-   - ????? os error log (.err) respectivos: TesteLista.err, TestePECA.err e Testetabuleiro.err, 
-     além de tudo.err, que mostra o resultado da compilação de todos os construtos na pasta Produto.
-     ??????
+   - o arquivo estatisticas.estat na pasta Scripts, se o executável exbestat existir e estiver na 
+     pasta correta (Veja seção seguinte: compilação através dos batches);
 
 
 (Re)compilação através dos batches
@@ -122,17 +137,59 @@ digidos em C (Autotest). Os passos a seguir elucidam esse processo:
 
 -Na pasta Fontes, coloque os arquivos header(.h): TST_ESPC.h, LERPARM.h e GENERICO.h. 
 
--Na pasta Composicao, coloque o arquivo Gmake.parm ????????????????????????
+-Na pasta Composicao, coloque o arquivo Gmake.parm
 
 -Crie no diretório uma pasta de nome "ferramnt" (tudo minúsculo) e nela coloque os 
  executáveis Gmake.exe, Compilebanner.exe e exbestat.exe
 
-Os batches disponibilizados são os seguintes:
 
--Compila.bat:
--CompilaTudo.bat:
--GeraMake.bat:
--GeraTudo.bat:
--LimpaTudo.bat:
--TestaTudo.bat:
--Tudo.bat:
+Cabe observar novamente que pode ser necessário executar o batch vsvars32.bat do Visual
+Studio para rodar os batches. Os batches disponibilizados são os seguintes:
+
+
+-Compila.bat: 	Compila um programa em C a partir de scripts de make. Deve-se usar a
+             	sintaxe: Compila.bat <Nome do arquivo>.make (Exemplo: Compila.bat TESTEPECA).
+		Gerará na pasta Produto o arquivo .err com o resultado da compilação e o
+		arquivo executável que implementa o respectivo teste. Na pasta Objetos, 
+		gera os arquivos .obj correspondentes.
+
+-CompilaTudo.bat: Compila todos os testes, de lista, peca e tabuleiro. Usa os respectivos
+                  arquivos make. Gera os error log (.err): TesteLista.err, TestePECA.err e 
+		  Testetabuleiro.err, além de tudo.err, que mostra o resultado da compilação
+		  de todos os construtos na pasta Produto.
+ 
+-GeraMake.bat: 	Gera os scripts de make a partir dos arquivos de composição dos construtos
+             	(.comp). Supõe a existência de uma pasta "ferramnt", com o utilitário Gmake.
+               	Deve ser ativado a partir da sintaxe: GeraMake.bat <NomeArquivoComposicao> 
+               	Exemplo: GeraMake.bat ..\Composicao\TESTEPECA.
+	       	Gera, na pasta Composicao, os respectivos arquivos (.list) e (.make), além
+		do arquivo (.build) na pasta Objetos
+
+-GeraTudo.bat: 	Gera script de make de todos os módulos: lista, peca e tabuleiro. Usa os res-
+               	pectivos arquivos .comp.
+
+-Limpa.bat: 	Limpa os arquivos gerados após a compilação e/ou teste de módulos. Se houver
+		a pasta "ferramnt", limpa todos os arquivos que podem ser gerados através da
+		compilação/teste dos módulos. Nesse caso, após a execução a pasta Objetos 
+		deverá conter apenas ArcaboucoTeste.lib; a pasta Produto deverá estar vazia;
+		a pasta Composicao deverá conter apenas os arquivos .comp e ??Gmake.parm?? e
+		a pasta Scripts não deverá conter arquivos .estat.
+		Caso não haja a pasta "ferramnt", o batch elimina apenas os arquivos .log que
+		tenham sido gerado nos testes, mantendo os executaveis.
+
+-Testa.bat:	Funciona como especificado em "Execução dos testes". 
+
+-TestaTudo.bat: Funciona como especificado em "Execução dos testes". Caso a pasta "ferramnt"
+		exista e tenha sido corretamente criada, deverá criar um arquivo .estat na pas-
+		ta Scripts.
+
+-Tudo.bat: 	Se a pasta "ferramnt" existir executa, em ordem: LimpaTudo.bat, GeraTudo.bat, 
+		Compilatudo.bat e TestaTudo.bat. Caso contrário executa apenas LimpaTudo.bat 
+		e TestaTudo.bat.
+		Em outras palavras, ele compila e testa os construtos, caso exista "ferramt"
+		ou apenas testa eles caso não exista.
+
+
+Assim para recompilar um construto, pode-se usar um dos batches para geração de scripts de make,
+seguido de um dos batches para compilação. Em seguida,testam-se os módulos. Em substituição, pode-se
+usar o batch Tudo.bat

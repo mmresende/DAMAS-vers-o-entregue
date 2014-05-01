@@ -90,7 +90,7 @@ typedef enum {
 *     Não existe identificador de tipo associado à lista.
 *
 *  $EP Parâmetros
-*     ExcluirValor  - ponteiro para a função que processa a
+*      $P ExcluirValor  - ponteiro para a função que processa a
 *                     exclusão do valor referenciado pelo elemento
 *                     a ser excluído.
 *                     Ver descrição do módulo.
@@ -133,7 +133,7 @@ void LIS_DestruirLista(LIS_tppLista pLista);
 *     Elimina todos os elementos, sem contudo eliminar a lista
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista a ser esvaziada
+*     $P pLista - ponteiro para a lista a ser esvaziada
 *
 ***********************************************************************/
 
@@ -148,8 +148,8 @@ void LIS_EsvaziarLista(LIS_tppLista pLista);
 *     Caso a lista esteja vazia, insere o primeiro elemento da lista.
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista onde deve ser inserido o elemento
-*     pValor - ponteiro para o valor do novo elemento
+*     $P pLista - ponteiro para a lista onde deve ser inserido o elemento
+*     $P pValor - ponteiro para o valor do novo elemento
 *              Pode ser NULL
 *
 *  $FV Valor retornado
@@ -169,16 +169,16 @@ LIS_tpCondRet LIS_InserirElementoAntes(LIS_tppLista pLista, void *pValor);
 *     Caso a lista esteja vazia, insere o primeiro elemento da lista.
 *
 *  $EP Parâmetros
-*     Parâmetros
-*        pLista - ponteiro para a lista onde deve ser inserido o elemento
-*        pValor - ponteiro para o valor do novo elemento
+*     
+*        $P pLista - ponteiro para a lista onde deve ser inserido o elemento
+*        $P pValor - ponteiro para o valor do novo elemento
 *                 Pode ser NULL
 *
 *
 *  $FV Valor retornado
-*     Valor retornado
-*        LIS_CondRetOK
-*        LIS_CondRetFaltouMemoria
+*     
+*        LIS_CondRetOK 
+*        LIS_CondRetFaltouMemoria 
 *
 ***********************************************************************/
 
@@ -195,7 +195,7 @@ LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista, void *pValor);
 *     Se este também não existir a lista tornou-se vazia.
 *
 *  $EP Parâmetros
-*     pLista    - ponteiro para a lista na qual deve excluir.
+*     $P pLista    - ponteiro para a lista na qual deve excluir.
 *
 *  $FV Valor retornado
 *     LIS_CondRetOK
@@ -213,7 +213,7 @@ LIS_tpCondRet LIS_ExcluirElemento(LIS_tppLista pLista);
 *     Obtem a referência para o valor contido no elemento corrente da lista
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista de onde se quer o valor
+*     $P pLista - ponteiro para a lista de onde se quer o valor
 *
 *  $FV Valor retornado
 *     não NULL - se o elemento corrente existe
@@ -232,8 +232,8 @@ void *LIS_ObterValor(LIS_tppLista pLista);
 *     Estabelece o valor armazenado no elemento corrente
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista que possui o elemento a ser alterado
-*	  pValor - ponteiro para o novo valor do elemento corrente
+*     $P pLista - ponteiro para a lista que possui o elemento a ser alterado
+*	$P  pValor - ponteiro para o novo valor do elemento corrente
 *              Pode ser NUL
 *
 *  $FV Valor retornado
@@ -253,7 +253,7 @@ LIS_tpCondRet LIS_SetarValor(LIS_tppLista pLista, void *pValor);
 *     Faz nada se a lista está vazia.
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista a manipular
+*     $P pLista - ponteiro para a lista a manipular
 *
 ***********************************************************************/
 
@@ -268,7 +268,7 @@ void LIS_IrInicioLista(LIS_tppLista pLista);
 *     Faz nada se a lista está vazia.
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista a manipular
+*     $P pLista - ponteiro para a lista a manipular
 *
 ***********************************************************************/
 
@@ -285,8 +285,8 @@ void LIS_IrFinalLista(LIS_tppLista pLista);
 *				elemento da lista
 *
 *  $EP Parâmetros
-*     pLista - ponteiro para a lista a manipular
-*	  i		 - índice do elemento da lista a ser tornado elemento corrente
+*     $P pLista - ponteiro para a lista a manipular
+*	$P  i   - índice do elemento da lista a ser tornado elemento corrente
 *
 *  $FV Valor retornado
 *     CondRetOK         - se o elemento de índice i existir e for o novo
@@ -312,8 +312,8 @@ LIS_tpCondRet LIS_IrIndice(LIS_tppLista pLista, int i);
 *     Se numElem for zero somente verifica se a lista está vazia
 *
 *  $EP Parâmetros
-*     pLista  - ponteiro para a lista a ser manipulada
-*     numElem - o número de elementos a andar
+*     $P pLista  - ponteiro para a lista a ser manipulada
+*     $P numElem - o número de elementos a andar
 *
 *  $FV Valor retornado
 *     CondRetOK         - se numElem elementos tiverem sido andados
@@ -334,8 +334,8 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 *     A função compara ponteiro e não conteúdo apontado.
 *
 *  $EP Parâmetros
-*     pLista  - ponteiro para a lista onde procura
-*     pValor  - ponteiro para o valor procurado
+*      $P pLista  - ponteiro para a lista onde procura
+*      $P pValor  - ponteiro para o valor procurado
 *               Pode ser NULL
 *
 *  $FV Valor retornado

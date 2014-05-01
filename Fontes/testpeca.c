@@ -46,11 +46,11 @@ static const char SETAR_CARACTER_CMD  [] = "=setarcaracter";
 #define DIM_VT_PECA   10
 #define DIM_VALOR     100
 
-Peca *vtTabuleiros[DIM_VT_PECA];
+Peca *vtPecas[DIM_VT_PECA];
 
 /***** Protótipos das funções encapuladas no módulo *****/
 
-static int ValidarInxTabuleiro(int inxLista, int Modo);
+static int ValidarInxPeca(int inxLista, int Modo);
 
 /*****  Código das funções exportadas pelo módulo  *****/
 
@@ -89,7 +89,7 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 	/* Efetuar reset de teste de peca */               
     if(strcmp(ComandoTeste, RESET_PECA_CMD) == 0) {
         for(i = 0; i < DIM_VT_PECA; i++)
-            vtTabuleiros[i] = NULL;
+            vtPecas[i] = NULL;
 
         return TST_CondRetOK;
     } /* fim ativa: Efetuar reset de teste de lista */  
@@ -98,22 +98,22 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     else if(strcmp(ComandoTeste, CRIAR_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("iis", &inxLista, &tipo, StringDado);
 
-        if((numLidos != 3) || (! ValidarInxTabuleiro(inxLista, VAZIO)))
+        if((numLidos != 3) || (! ValidarInxPeca(inxLista, VAZIO)))
             return TST_CondRetParm;
 
-        vtTabuleiros[inxLista] = PEC_criar(tipo, StringDado[0]);
-        return TST_CompararPonteiroNulo(1, vtTabuleiros[inxLista], "Erro em ponteiro de nova peca.");
+        vtPecas[inxLista] = PEC_criar(tipo, StringDado[0]);
+        return TST_CompararPonteiroNulo(1, vtPecas[inxLista], "Erro em ponteiro de nova peca.");
     } /* fim ativa: Testar Criar peca */                                       
 
 	/* Testar Destruir peca*/                                                
     else if(strcmp(ComandoTeste, DESTRUIR_PECA_CMD) == 0) {
         numLidos = LER_LerParametros("i", &inxLista);
 
-        if((numLidos != 1) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 1) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_destruir(vtTabuleiros[inxLista]);
-        vtTabuleiros[inxLista] = NULL;
+        PEC_destruir(vtPecas[inxLista]);
+        vtPecas[inxLista] = NULL;
 
         return TST_CondRetOK;
     } /* fim ativa: Testar Destruir peca */                                     
@@ -122,10 +122,10 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     else if(strcmp(ComandoTeste, OBTER_TIPO_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &CondRetEsp);
 
-        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        tipo = PEC_obterTipo(vtTabuleiros[inxLista]);
+        tipo = PEC_obterTipo(vtPecas[inxLista]);
         return TST_CompararInt(CondRetEsp, tipo, "Tipo errado ao obter tipo.");   	
     } /* fim ativa: Testar Obter Tipo da peca */                                              
 
@@ -133,10 +133,10 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     else if(strcmp(ComandoTeste, SETAR_TIPO_CMD) == 0) {
         numLidos = LER_LerParametros("ii", &inxLista, &tipo);
 
-        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_setarTipo(vtTabuleiros[inxLista], tipo);
+        PEC_setarTipo(vtPecas[inxLista], tipo);
         return TST_CondRetOK;
     } /* fim ativa: Testar Setar Tipo da peca */                                          
 
@@ -144,10 +144,10 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     else if(strcmp(ComandoTeste, OBTER_CARACTER_CMD) == 0) {
         numLidos = LER_LerParametros("is", &inxLista, StringDado);
 
-        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        caracter = PEC_obterCaracter(vtTabuleiros[inxLista]);
+        caracter = PEC_obterCaracter(vtPecas[inxLista]);
         return TST_CompararEspaco(StringDado, &caracter, 1, "Caracter errado ao obter caracter.");
     } /* fim ativa: Testar Obter Caracter da peca */                                             
 
@@ -155,10 +155,10 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
     else if(strcmp(ComandoTeste, SETAR_CARACTER_CMD) == 0) {
         numLidos = LER_LerParametros("is", &inxLista, StringDado);
 
-        if((numLidos != 2) || (! ValidarInxTabuleiro(inxLista, NAO_VAZIO)))
+        if((numLidos != 2) || (! ValidarInxPeca(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        PEC_setarCaracter(vtTabuleiros[inxLista], StringDado[0]);
+        PEC_setarCaracter(vtPecas[inxLista], StringDado[0]);
         return TST_CondRetOK;
     } /* fim ativa: Testar Setar Caracter da peca */  
 
@@ -173,16 +173,16 @@ TST_tpCondRet TST_EfetuarComando(char *ComandoTeste)
 *
 ***********************************************************************/
 
-int ValidarInxTabuleiro(int inxLista, int Modo)
+int ValidarInxPeca(int inxLista, int Modo)
 {
     if((inxLista <  0) || (inxLista >= DIM_VT_PECA))
         return FALSE;
 
     if(Modo == VAZIO) {
-        if(vtTabuleiros[inxLista] != 0)
+        if(vtPecas[inxLista] != 0)
             return FALSE;
     } else {
-        if(vtTabuleiros[inxLista] == 0)
+        if(vtPecas[inxLista] == 0)
             return FALSE;
     }
     return TRUE;
