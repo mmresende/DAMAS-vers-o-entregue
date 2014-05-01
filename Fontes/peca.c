@@ -54,7 +54,7 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
 	if (peca==NULL)
 		return NULL;
     PEC_setarTipo(peca, tipo);
-    PEC_setarCaracter(peca, caracter);
+    PEC_setarCaracter(peca, tolower(caracter));
     return peca;
 }/* Fim função: PEC  &Criar uma peça */
 
@@ -136,8 +136,8 @@ void PEC_setarCaracter(Peca *peca, char caracter)
 {
 	#ifdef _DEBUG
        assert(peca);
-       assert(islower(caracter));
-	#endif    
+	#endif
+	caracter=tolower(caracter);
     peca->caracter = caracter;
 }/* Fim função: PEC  &Setar caracter identificador de uma determinada  peça */
 

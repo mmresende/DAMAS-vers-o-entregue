@@ -14,6 +14,9 @@ if exist ..\ferramnt goto LimpaTudo
 cd ..\Produto
 del *.log
 
+cd..\Scripts
+del *.estat
+
 popd
 
 goto sai
@@ -45,9 +48,6 @@ del *.err
 del TESTELISTA.exe
 del TESTEPECA.exe
 del TESTETABULEIRO.exe
-
-cd ..\Tabelas
-del *.bak
 
 cd ..\Scripts
 del *.bak

@@ -5,9 +5,9 @@ cls
 
 if exist ..\ferramnt\exbestat goto estatistica
 
-..\produto\TESTELISTA		/s..\scripts\TesteLista		/l..\produto\TesteLista		/a..\scripts\estatisticas
-..\produto\TESTEPECA  		/s..\scripts\Testepeca    	/l..\produto\TestePeca  	/a..\scripts\estatisticas
-..\produto\TESTETABULEIRO  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   	/a..\scripts\estatisticas
+..\produto\TESTELISTA		/s..\scripts\TesteLista		/l..\produto\TesteLista		
+..\produto\TESTEPECA  		/s..\scripts\Testepeca    	/l..\produto\TestePeca  	
+..\produto\TESTETABULEIRO  	/s..\scripts\Testetabuleiro	/l..\produto\TesteTabuleiro   
 
 goto sai
 

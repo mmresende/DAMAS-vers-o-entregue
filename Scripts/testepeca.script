@@ -8,22 +8,26 @@
 =declararparm   peca1  int 1
 =declararparm   peca2  int 2  
 =declararparm   peca3  int 3 
+=declararparm   peca4  int 4 
+=declararparm   peca5  int 5 
+=declararparm   peca6  int 6 
+=declararparm   peca7  int 7 
 
-=declararparm   caracterA    string  "x"
-=declararparm   caracterB    string  "o"
+=declararparm   Branca    string  "x"
+=declararparm   Preta     string  "o"
 
 =declararparm   Normal      int  0
 =declararparm   Dama        int  1
 
 
 == Criar a peca 0
-=criarpeca      peca0 Normal caracterA
+=criarpeca      peca0 Normal Branca
 
 == Verificar ObterTipo relativo a peca inicial
 =obtertipo  peca0 Normal
 
 == Verificar ObterCaracter relativo a peca inicial
-=obtercaracter    peca0   caracterA
+=obtercaracter    peca0   Branca
 
 == Setar tipo
 =setartipo     peca0   Dama
@@ -32,22 +36,44 @@
 =obtertipo peca0 Dama
 
 == Setar Caracter
-=setarcaracter peca0 caracterB
+=setarcaracter peca0 Preta
 
 == Obter Caracter
-=obtercaracter peca0 caracterB
+=obtercaracter peca0 Preta
 
+==Destruir Peca
 =destruirpeca   peca0
 
 ==Criar 3 pecas 
-=criarpeca peca1 Dama caracterA
-=criarpeca peca2 Normal caracterB
-=criarpeca peca3 Dama caracterB
+=criarpeca peca1 Dama Branca
+=criarpeca peca2 Normal Preta
+=criarpeca peca3 Dama Preta
 
 ==Obter tipo 
 =obtertipo peca1 Dama
 =obtertipo peca2 Normal
 =obtertipo peca3 Dama
+
+==Obter Caracter
+=obtercaracter peca1 Branca
+=obtercaracter peca2 Preta
+=obtercaracter peca3 Preta
+
+==Mudar Tipo das pecas
+=setartipo peca1 Normal
+=setartipo peca2 Dama
+=setartipo peca3 Normal
+=obtertipo peca1 Normal
+=obtertipo peca2 Dama
+=obtertipo peca3 Normal
+
+==Mudar caracter das pecas
+=setarcaracter peca1 Preta
+=setarcaracter peca2 Branca
+=setarcaracter peca3 Branca
+=obtercaracter peca1 Preta
+=obtercaracter peca2 Branca
+=obtercaracter peca3 Branca
 
 ==Verificar inexistencia da peca0 
 =obtertipo peca0 Normal
@@ -55,13 +81,13 @@
 =obtertipo peca0 Dama
 =recuperar
 
-==destruir peca do meio 
+==Destruir peca do meio 
 =destruirpeca peca2
 
-==destruir peca do início 
+==Destruir peca do início 
 =destruirpeca peca1
 
-==destruir peca do fim 
+==Destruir peca do fim 
 =destruirpeca peca3
 
 ==Verificar se as pecas foram destruidas 
@@ -73,9 +99,130 @@
 =recuperar
 
 ==Obter caracter de peca inexistente 
-=obtercaracter peca0 caracterA
+=obtercaracter peca0 Branca
 =recuperar
-=obtercaracter peca0 caracterB
+=obtercaracter peca0 Preta
 =recuperar
+
+==Setar tipo e caracter de peca inexistente
+=setartipo       peca0 Dama
+=recuperar 
+=setarcaracter   peca0 Branca
+=recuperar
+
+==Setar tipo e caracter de peca inexistente
+=setartipo       peca1 Normal
+=recuperar 
+=setarcaracter   peca1 Preta
+=recuperar
+
+==Destruir peca inexistente
+=destruirpeca  peca0
+=recuperar
+=destruirpeca  peca1
+=recuperar
+
+==Criar oito pecas normais de mesma cor
+=criarpeca   peca0 Normal Branca
+=criarpeca   peca1 Normal Branca
+=criarpeca   peca2 Normal Branca
+=criarpeca   peca3 Normal Branca
+=criarpeca   peca4 Normal Branca
+=criarpeca   peca5 Normal Branca
+=criarpeca   peca6 Normal Branca
+=criarpeca   peca7 Normal Branca
+
+==Passar as pecas pra dama
+=setartipo   peca0 Dama
+=setartipo   peca1 Dama
+=setartipo   peca2 Dama
+=setartipo   peca3 Dama
+=setartipo   peca4 Dama
+=setartipo   peca5 Dama
+=setartipo   peca6 Dama
+=setartipo   peca7 Dama
+=obtertipo   peca0 Dama
+=obtertipo   peca1 Dama
+=obtertipo   peca2 Dama
+=obtertipo   peca3 Dama
+=obtertipo   peca4 Dama
+=obtertipo   peca5 Dama
+=obtertipo   peca6 Dama
+=obtertipo   peca7 Dama
+
+==Verificar caracteres das pecas 
+=obtercaracter peca0 Branca
+=obtercaracter peca1 Branca
+=obtercaracter peca2 Branca
+=obtercaracter peca3 Branca
+=obtercaracter peca4 Branca
+=obtercaracter peca5 Branca
+=obtercaracter peca6 Branca
+=obtercaracter peca7 Branca
+
+==Destruir pecas
+=destruirpeca peca0
+=destruirpeca peca1
+=destruirpeca peca2
+=destruirpeca peca3
+=destruirpeca peca4
+=destruirpeca peca5
+=destruirpeca peca6
+=destruirpeca peca7
+
+==Verificar destruicao
+=obtercaracter peca0 Branca
+=recuperar
+=obtercaracter peca1 Branca
+=recuperar
+=obtercaracter peca2 Branca
+=recuperar
+=obtercaracter peca3 Branca
+=recuperar
+=obtercaracter peca4 Branca
+=recuperar
+=obtercaracter peca5 Branca
+=recuperar
+=obtercaracter peca6 Branca
+=recuperar
+=obtercaracter peca7 Branca
+=recuperar
+
+==Criar pecas com caracteres diferentes
+=criarpeca     peca0 Normal "s"
+=criarpeca     peca1 Dama   "/"
+=criarpeca     peca2 Normal "7"
+=obtercaracter peca0 "s"
+=obtercaracter peca1 "/"
+=obtercaracter peca2 "7"
+
+==Setar caracter com caracteres diferentes
+=setarcaracter peca0 "/"
+=setarcaracter peca1 "7"
+=setarcaracter peca2 "s"
+=obtercaracter peca0 "/"
+=obtercaracter peca1 "7"
+=obtercaracter peca2 "s"
+
+==destruir pecas
+=destruirpeca peca0
+=destruirpeca peca1
+=destruirpeca peca2
+
+==Criar pecas com caracteres Maiusculos
+=criarpeca     peca0 Normal "X"
+=criarpeca     peca1 Dama   "O"
+=obtercaracter peca0 "x"
+=obtercaracter peca1 "o"
+
+==Setar caracter com caracteres Maiusculos
+=setarcaracter peca0 "X"
+=setarcaracter peca1 "O"
+=obtercaracter peca0 "x"
+=obtercaracter peca1 "o"
+
+==destruir pecas
+=destruirpeca peca0
+=destruirpeca peca1
 
 // fim

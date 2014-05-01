@@ -195,7 +195,17 @@
 =removerpeca tabuleiro0    4 colunaB
 =setarcasa   tabuleiro0    8 "h"
 =obtercasa   tabuleiro0    4 colunaB pNULL
-=obtercasa   tabuleiro0    8 "h" pNaoNULL
+=obtercasa   tabuleiro0    8 "h"     pNaoNULL
+
+==mover peca para casa inexistente
+=removerpeca tabuleiro0    8 "h"
+=setarcasa   tabuleiro0    9 "h"
+=obtercasa   tabuleiro0    8 "h"     pNULL
+=obtercasa   tabuleiro0    9 "h"     pNULL
+
+==remover peca de casa inexistente
+=removerpeca tabuleiro0    9 "h"
+=obtercasa   tabuleiro0    9 "h"     pNULL
 
 ==destruir tabuleiros  
 =destruirtabuleiro   tabuleiro0

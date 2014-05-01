@@ -7,11 +7,11 @@ cd..\ferramnt
 
 del ..\produto\*.err
 del ..\produto\*.obj
-del ..\produto\TesteLista.exe
+del ..\produto\TESTELISTA.exe
 del ..\produto\TESTEPECA.exe
 del ..\produto\TESTETABULEIRO.exe
 
-nmake /F..\composicao\testelista.make 
+nmake /F..\composicao\TESTELISTA.make 
 nmake /F..\composicao\TESTEPECA.make 
 nmake /F..\composicao\TESTETABULEIRO.make 
 

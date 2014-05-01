@@ -59,5 +59,9 @@ Data: 29/04/2014
 Data: 30/04/2014
   Horas Trabalhadas: 6h
   Tipo Tarefa: revisar projetos
-  Descrição da Tarefa Realizada: Reprojetar alguns batches para que funcionem sem a pasta "ferramnt". Projetar o LEIAME. Arrumar
-o projeto para seu formato de entrega.
+  Descrição da Tarefa Realizada: Reprojetar alguns batches para que funcionem sem a pasta "ferramnt". Projetar o LEIAME. Arrumar o projeto para seu formato de entrega.
+
+Data: 1/05/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: revisar scripts de teste, realizar os testes, diagnosticar e corrigir problemas encontrados
+  Descrição da Tarefa Realizada: Expandir os scripts de lista, peca e tabuleiro. Resolver pequeno problema envolvendo letras maiusculas em peca.c

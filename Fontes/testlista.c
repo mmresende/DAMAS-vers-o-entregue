@@ -60,8 +60,8 @@ static const char PROCURAR_VALOR_CMD      [] = "=procurarvalor"	    ;
 #define DIM_VALOR_INT	2               
 
 LIS_tppLista vtListas[DIM_VT_LISTA];
-void *storedPtr[DIM_VT_PTR];
-int storedPtrIndex = 1;
+void *storedPtr[DIM_VT_LISTA][DIM_VT_PTR];
+int storedPtrIndex[DIM_VT_LISTA] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
 /***** Protótipos das funções encapsuladas no módulo *****/
 
@@ -119,15 +119,17 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
 
     int inxStoredPtr;
 
-    storedPtr[0] = NULL;
+    for(i = 0; i < DIM_VT_LISTA; i++)
+        storedPtr[i][0] = NULL;
     StringDado[0] = 0;
 
     /* Efetuar reset de teste de lista */
     if(strcmp(ComandoTeste, RESET_LISTA_CMD) == 0) {
-        for(i = 0; i < DIM_VT_LISTA; i++)
+        for(i = 0; i < DIM_VT_LISTA; i++) {
             vtListas[i] = NULL;
+            storedPtrIndex[i] = 1;
+        }
 
-        storedPtrIndex = 0;
         return TST_CondRetOK;
 
     } /* fim ativa: Efetuar reset de teste de lista */
@@ -176,14 +178,14 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        if(!ValidarInxStoredPtr(storedPtrIndex))
+        if(!ValidarInxStoredPtr(storedPtrIndex[inxLista]))
             return TST_CondRetMemoria;
 
         pDado = (char *) malloc(strlen(StringDado) + 1);
         if(pDado == NULL)
             return TST_CondRetMemoria;
 
-        storedPtr[storedPtrIndex++] = pDado;
+        storedPtr[inxLista][storedPtrIndex[inxLista]++] = pDado;
         strcpy(pDado, StringDado);
 
         CondRet = LIS_InserirElementoAntes(vtListas[inxLista], pDado);
@@ -200,14 +202,14 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        if(!ValidarInxStoredPtr(storedPtrIndex))
+        if(!ValidarInxStoredPtr(storedPtrIndex[inxLista]))
             return TST_CondRetMemoria;
 
         pDadoInt = (int *) malloc(DIM_VALOR_INT*sizeof(int));
         if(pDadoInt == NULL)
             return TST_CondRetMemoria;
 
-        storedPtr[storedPtrIndex++] = pDadoInt;
+        storedPtr[inxLista][storedPtrIndex[inxLista]++] = pDadoInt;
         for(i=0;i<DIM_VALOR_INT;i++)
             pDadoInt[i]=IntDado[i];
 
@@ -225,14 +227,14 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         if((numLidos != 3) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        if(!ValidarInxStoredPtr(storedPtrIndex))
+        if(!ValidarInxStoredPtr(storedPtrIndex[inxLista]))
             return TST_CondRetMemoria;
 
         pDado = (char*)malloc(strlen(StringDado) + 1);
         if(pDado == NULL)
             return TST_CondRetMemoria;
 
-        storedPtr[storedPtrIndex++] = pDado;
+        storedPtr[inxLista][storedPtrIndex[inxLista]++] = pDado;
         strcpy(pDado, StringDado);
 
         CondRet = LIS_InserirElementoApos(vtListas[inxLista], pDado);
@@ -249,14 +251,14 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        if(!ValidarInxStoredPtr(storedPtrIndex))
+        if(!ValidarInxStoredPtr(storedPtrIndex[inxLista]))
             return TST_CondRetMemoria;
 
         pDadoInt = (int *) malloc(DIM_VALOR_INT * sizeof(int));
         if(pDadoInt == NULL)
             return TST_CondRetMemoria;
 
-        storedPtr[storedPtrIndex++] = pDadoInt;
+        storedPtr[inxLista][storedPtrIndex[inxLista]++] = pDadoInt;
         for(i=0;i<DIM_VALOR_INT;i++)
             pDadoInt[i]=IntDado[i];
 
@@ -287,7 +289,6 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
             return TST_CondRetParm;
 
         pDado = (char *) LIS_ObterValor(vtListas[inxLista]);
-
         if(ValEsp == 0)
             return TST_CompararPonteiroNulo(0, pDado, "Valor nÃ£o deveria existir.");
 
@@ -305,7 +306,6 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
             return TST_CondRetParm;
 
         pDadoInt = (int *)LIS_ObterValor(vtListas[inxLista]);
-
         if(ValEsp == 0)
             return TST_CompararPonteiroNulo(0, pDadoInt, "Valor nÃ£o deveria existir.");
 
@@ -367,7 +367,18 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         if((numLidos != 4) || (!ValidarInxLista(inxLista, NAO_VAZIO)))
             return TST_CondRetParm;
 
-        return TST_CompararInt(CondRetEsp, LIS_SetarValor(vtListas[inxLista], IntDado),
+        if(!ValidarInxStoredPtr(storedPtrIndex[inxLista]))
+            return TST_CondRetMemoria;
+
+        pDadoInt = (int *) malloc(DIM_VALOR_INT * sizeof(int));
+        if(pDadoInt == NULL)
+            return TST_CondRetMemoria;
+
+        storedPtr[inxLista][storedPtrIndex[inxLista]++] = pDadoInt;
+        for(i=0;i<DIM_VALOR_INT;i++)
+            pDadoInt[i]=IntDado[i];
+
+        return TST_CompararInt(CondRetEsp, LIS_SetarValor(vtListas[inxLista], pDadoInt),
                                "Condicao de retorno errada ao ir marcar o valor");
     } /* fim ativa: LIS  Setar Valor INTEIRO*/
 
@@ -380,7 +391,7 @@ TST_tpCondRet TST_EfetuarComando(char * ComandoTeste)
         if(!ValidarInxStoredPtr(inxStoredPtr))
             return TST_CondRetParm;
 
-        return TST_CompararInt(CondRetEsp, LIS_ProcurarValor(vtListas[inxLista], storedPtr[inxStoredPtr]),
+        return TST_CompararInt(CondRetEsp, LIS_ProcurarValor(vtListas[inxLista], storedPtr[inxLista][inxStoredPtr]),
                                "Condicao de retorno errada ao procurar valor");
     } /* fim ativa: LIS Procurar Valor */
 

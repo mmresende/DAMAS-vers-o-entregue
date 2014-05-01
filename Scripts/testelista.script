@@ -5,6 +5,9 @@
 
 == Inicializar valores
 =declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
+=declararparm   lista3  int 3
 
 =declararparm   OK             int  0
 =declararparm   ListaVazia     int  1
@@ -14,6 +17,7 @@
 
 =declararparm   pNULL          int  0
 =declararparm   pNaoNULL       int  1
+
 
 == Criar a lista 0
 =criarlista      lista0 
@@ -65,5 +69,149 @@
 
 == Destruir a lista
 =destruirlista   lista0
+
+== Criar uma lista com dois elementos
+=criarlista          lista1 
+=inselemapos.int     lista1       1  2   OK
+=inselemapos.int     lista1       2 -1   OK
+
+== Esvaziar a lista e ver se ficou vazia
+=esvaziarlista       lista1
+=obtervalorelem.int  lista1       1  2   pNULL
+
+== Destruir a lista
+=destruirlista   lista1
+
+== Criar uma lista com quatro elementos
+=criarlista          lista2 
+=inselemapos.int     lista2       0  1   OK
+=inselemapos.int     lista2       2  3   OK
+=inselemapos.int     lista2       4  5   OK
+=inselemapos.int     lista2       6  7   OK
+
+== Verificar a lista de trás para diante
+=obtervalorelem.int  lista2       6  7   pNaoNULL
+=avancarelem         lista2      -1      OK
+=obtervalorelem.int  lista2       4  5   pNaoNULL
+=avancarelem         lista2      -1      OK
+=obtervalorelem.int  lista2       2  3   pNaoNULL
+=avancarelem         lista2      -1      OK
+=obtervalorelem.int  lista2       0  1   pNaoNULL
+=avancarelem         lista2      -1      FimLista
+
+== Verificar a lista de frente para trás
+=obtervalorelem.int  lista2       0  1   pNaoNULL
+=avancarelem         lista2       1      OK
+=obtervalorelem.int  lista2       2  3   pNaoNULL
+=avancarelem         lista2       1      OK
+=obtervalorelem.int  lista2       4  5   pNaoNULL
+=avancarelem         lista2       1      OK
+=obtervalorelem.int  lista2       6  7   pNaoNULL
+=avancarelem         lista2       1      FimLista
+
+== Verificar a lista andando demais de trás para diante
+=avancarelem         lista2     -10     FimLista
+=obtervalorelem.int  lista2       0  1  pNaoNULL
+
+
+== Verificar a lista andando demais de frente para trás
+=avancarelem         lista2      10     FimLista
+=obtervalorelem.int  lista2       6  7   pNaoNULL
+
+== Destruir a lista
+=destruirlista   lista2
+
+==Criar lista com 8 elementos
+=criarlista	     lista3
+=inselemapos.int     lista3       1  1   OK
+=inselemapos.int     lista3       2  2   OK
+=inselemapos.int     lista3       3  3   OK
+=inselemapos.int     lista3       4  4   OK
+=inselemapos.int     lista3       5  5   OK
+=inselemapos.int     lista3       6  6   OK
+=inselemapos.int     lista3       7  7   OK
+=inselemapos.int     lista3       8  8   OK
+
+==Procurar valores
+=procurarvalor	     lista3 1 NaoAchou
+=irinicio	     lista3
+=procurarvalor	     lista3 1 OK
+
+==Verificar ir indice
+=irindice	     lista3 0 OK
+=irindice	     lista3 1 OK
+=irindice	     lista3 2 OK
+=irindice	     lista3 3 OK
+=irindice	     lista3 4 OK
+=irindice	     lista3 5 OK
+=irindice	     lista3 6 OK
+=irindice	     lista3 7 OK
+=irindice	     lista3 8 FimLista
+=irindice	     lista3 -2 FimLista
+
+==Verificar se está no elemento inicial
+=procurarvalor	     lista3 1 OK
+
+==Ir para elemento 3 e verificar se está nele
+=irindice	     lista3 3 OK
+=procurarvalor	     lista3 1 NaoAchou
+=procurarvalor	     lista3 2 NaoAchou
+=procurarvalor	     lista3 3 NaoAchou
+=procurarvalor       lista3 4 OK
+=obtervalorelem.int  lista3 4 4 pNaoNULL
+
+==Ir para indice maior que 7 e procurar o valor 8
+=irindice	     lista3 10 FimLista
+=procurarvalor       lista3  8 OK
+
+==Verificar setar valor
+=marcarvalor.int     lista3  0 0 OK
+=obtervalorelem.int  lista3  0 0 pNaoNULL
+
+==Alterar outros valores de lista
+=avancarelem         lista3   -1 OK
+=marcarvalor.int     lista3  1 1 OK
+=obtervalorelem.int  lista3  1 1 pNaoNULL
+=avancarelem         lista3   -1 OK
+=marcarvalor.int     lista3  2 2 OK
+=obtervalorelem.int  lista3  2 2 pNaoNULL
+=avancarelem         lista3   -1 OK
+=marcarvalor.int     lista3  3 3 OK
+=obtervalorelem.int  lista3  3 3 pNaoNULL
+=avancarelem         lista3   -1 OK
+=marcarvalor.int     lista3  4 4 OK
+=obtervalorelem.int  lista3  4 4 pNaoNULL
+=avancarelem         lista3   -1 OK
+=marcarvalor.int     lista3  5 5 OK
+=obtervalorelem.int  lista3  5 5 pNaoNULL
+
+==Procurar valor zero
+=irinicio            lista3
+=procurarvalor       lista3  9 OK
+
+==Procurar valores retirados da lista
+=irinicio            lista3
+=procurarvalor       lista3  8 NaoAchou
+=procurarvalor       lista3  7 NaoAchou
+=procurarvalor       lista3  6 NaoAchou
+=procurarvalor       lista3  5 NaoAchou
+=procurarvalor       lista3  4 NaoAchou
+=procurarvalor       lista3  3 NaoAchou
+=procurarvalor       lista3  2 OK
+
+==Esvaziar lista e testar funções
+=esvaziarlista        lista3
+=obtervalorelem.int   lista3  0 0 pNULL
+=excluirelem	      lista3      ListaVazia
+=irinicio             lista3		
+=irfinal              lista3
+=irindice             lista3    2 ListaVazia
+=avancarelem          lista3   -1 ListaVazia
+=avancarelem          lista3    5 ListaVazia
+=marcarvalor.int      lista3  0 0 ListaVazia
+=procurarvalor        lista3    0 ListaVazia
+
+==destruir lista
+=destruirlista        lista3
 
 // fim

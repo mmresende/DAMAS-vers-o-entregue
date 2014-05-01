@@ -55,8 +55,8 @@ typedef enum _PecaTipo {
 *  $TC Tipo de dados: PEC tipo estipula a estrutura de peca
 *  $ED Descrição de tipo
 *
-*      Este tipo define peça apartir de um caracter(char) que
-*      identifica uma peça como 'x' ou 'o' e apartir do tipo PecaTipo,
+*      Este tipo define peça a partir de um caracter(char) minusculo, que
+*      identifica uma peça (como 'x' ou 'o') e a partir do tipo PecaTipo,
 *      que define se a peça é dama ou normal.
 *
 ***********************************************************************/
@@ -74,13 +74,17 @@ typedef struct _Peca Peca;
 *  
 *  $EP Parâmetros
 *
-*        $P PecaTipo tipo - define PecaNormal e PecaDama
-*       $P char caracter -  um caracter indicador 'x' ou 'o'.
+*       $P PecaTipo tipo - define PecaNormal e PecaDama
+*       $P char caracter -  um caracter indicador da peca. Para implementção do 
+*							jogo, deve ser 'x' (branca) ou 'o'(preta), embora possa
+*							receber qualquer caracter.
 *
 *  $FV Valor retornado 
 *
 *        O valor retornado é um ponteiro do tipo Peca, que contém os
 *        valores tipo e caracter recebidos como parâmetro.
+*		 Caso o caracter recebido como parâmetro seja maiusculo, será convertido
+*		 para uma letra minúscula e esta será armazenada em Peca.
 *		 Retorna NULL se ocorrer falta de memória
 *
 ***********************************************************************/
@@ -114,7 +118,7 @@ void PEC_destruir(Peca *peca);
 *
 *  $ED Descrição da função
 *     
-*       Imprimi o caracter associado a uma peça concatenado com pipe
+*       Imprime o caracter associado a uma peça concatenado com pipe
 *       para se encaixar na estrutura do tabuleiro.
 *  
 *  $EP Parâmetros
@@ -148,7 +152,7 @@ void PEC_imprimir(Peca *peca);
 *
 *  $FV Valor retornado 
 *
-*        Retorna o tipo da peça recebida como parâmetro na forma do
+*        Retorna o tipo da peça recebida como parâmetro, na forma do
 *        tipo de estrutura PecaTipo.
 *
 ***********************************************************************/
@@ -194,7 +198,8 @@ void PEC_setarTipo(Peca *peca, PecaTipo tipo);
 *  $FV Valor retornado 
 *
 *        Retorna o caracter (char) identificador da peça recebida como
-*        parâmetro.
+*        parâmetro. Se a peca tiver sido corretamente criada, deve ser
+*		 minusculo.
 *
 ***********************************************************************/
 char PEC_obterCaracter(Peca *peca);
@@ -212,12 +217,15 @@ char PEC_obterCaracter(Peca *peca);
 *      $P Peca* peca - um ponteiro que representa uma peça do tipo
 *                       estruturado Peca.
 *
-*      $P char caracter -  um caracter indicador 'x' ou 'o'.
+*      $P char caracter -  um caracter indicador da peca.Para implementção do 
+*						   jogo, deve ser 'x' (branca) ou 'o'(preta), embora possa
+*						   receber qualquer caracter.
 *  $FV Valor retornado 
 *
 *        Não retorna um valor, simplesmente muda o valor do caracter da peca
 *        recebida como parâmetro pelo valor de caracter também recebido como parâmetro.
-*
+*		 Caso o caracter recebido como parâmetro seja maiusculo, será convertido
+*		 para uma letra minúscula e esta será armazenada em Peca.
 ***********************************************************************/
 void PEC_setarCaracter(Peca *peca, char caracter);
 

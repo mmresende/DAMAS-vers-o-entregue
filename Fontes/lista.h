@@ -233,7 +233,7 @@ void *LIS_ObterValor(LIS_tppLista pLista);
 *
 *  $EP Parâmetros
 *     $P pLista - ponteiro para a lista que possui o elemento a ser alterado
-*	$P  pValor - ponteiro para o novo valor do elemento corrente
+*	  $P pValor - ponteiro para o novo valor do elemento corrente
 *              Pode ser NUL
 *
 *  $FV Valor retornado
@@ -286,7 +286,7 @@ void LIS_IrFinalLista(LIS_tppLista pLista);
 *
 *  $EP Parâmetros
 *     $P pLista - ponteiro para a lista a manipular
-*	$P  i   - índice do elemento da lista a ser tornado elemento corrente
+*	  $P  i   - índice do elemento da lista a ser tornado elemento corrente
 *
 *  $FV Valor retornado
 *     CondRetOK         - se o elemento de índice i existir e for o novo
