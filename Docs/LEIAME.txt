@@ -68,7 +68,7 @@ Os seguintes diretórios são gerados ao dezipar:
 	  ser gerados aqui se forem executados os batches corretos
 
 -Scripts: contém os scripts de teste (.script). O arquivo estatisticas (.estat) será gerado
-    	  aqui após a execução dos testes.
+    	  aqui após a execução dos testes, sob certas circunstâncias.
 
 
 Documentação
