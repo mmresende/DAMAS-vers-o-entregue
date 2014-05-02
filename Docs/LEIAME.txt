@@ -142,9 +142,9 @@ digidos em C (Autotest). Os passos a seguir elucidam esse processo:
 -Crie no diretório uma pasta de nome "ferramnt" (tudo minúsculo) e nela coloque os 
  executáveis Gmake.exe, Compilebanner.exe e exbestat.exe
 
-
-Cabe observar novamente que pode ser necessário executar o batch vsvars32.bat do Visual
-Studio para rodar os batches. Os batches disponibilizados são os seguintes:
+Há um batch VerificaAlocacao que verifica se esse processo foi feito da forma correta 
+(Ver adiante).Cabe observar novamente que pode ser necessário executar o batch vsvars32.bat
+do Visual Studio para rodar os batches. Os batches disponibilizados são os seguintes:
 
 
 -Compila.bat: 	Compila um programa em C a partir de scripts de make. Deve-se usar a
@@ -189,6 +189,10 @@ Studio para rodar os batches. Os batches disponibilizados são os seguintes:
 		Em outras palavras, ele compila e testa os construtos, caso exista "ferramt"
 		ou apenas testa eles caso não exista.
 
+-VerificaAlocacao.bat: Verifica se os arquivos necessarios para compilação dos construtos foram
+		       alocados corretamente. Exibe na tela os arquivos que tiverem faltando. Se
+		       não estiver faltando nenhum arquivo, será exibido: "Arquivos alocados de
+		       de forma correta".
 
 Assim para recompilar um construto, pode-se usar um dos batches para geração de scripts de make,
 seguido de um dos batches para compilação. Em seguida,testam-se os módulos. Em substituição, pode-se
