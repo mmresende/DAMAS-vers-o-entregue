@@ -191,8 +191,8 @@ do Visual Studio para rodar os batches. Os batches disponibilizados são os segu
 
 -VerificaAlocacao.bat: Verifica se os arquivos necessarios para compilação dos construtos foram
 		       alocados corretamente. Exibe na tela os arquivos que tiverem faltando. Se
-		       não estiver faltando nenhum arquivo, será exibido: "Arquivos alocados de
-		       de forma correta".
+		       não estiver faltando nenhum arquivo, nada será exibido na tela e a alocação
+		       terá sido feita de forma correta.
 
 Assim para recompilar um construto, pode-se usar um dos batches para geração de scripts de make,
 seguido de um dos batches para compilação. Em seguida,testam-se os módulos. Em substituição, pode-se
