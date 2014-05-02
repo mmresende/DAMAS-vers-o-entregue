@@ -35,12 +35,7 @@ if exist ..\Fontes\LERPARM.h  goto next8
 echo Falta LERPARM.h
 
 :next8
-if exist ..\Composicao\Gmake.parm goto next9
+if exist ..\Composicao\Gmake.parm goto sai
 echo Falta Gmake.parm
-goto sai
-
-:next9
-echo Arquivos alocados de forma correta
-goto sai
 
 :sai
