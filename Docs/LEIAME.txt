@@ -68,7 +68,7 @@ Os seguintes diretórios são gerados ao dezipar:
 	  ser gerados aqui se forem executados os batches corretos
 
 -Scripts: contém os scripts de teste (.script). O arquivo estatisticas (.estat) será gerado
-    	  aqui após a execução dos testes, sob certas circunstâncias (ver seções posteriores).
+    	  aqui após a execução dos testes.
 
 
 Documentação
@@ -106,22 +106,21 @@ Há três formas de executar os testes:
    Caso contrário, o resultado só será exibido na tela. 
    
    EXEMPLOS: TESTEPECA.exe/s..\scripts\testepeca
-	     TESTELISTA.exe/s..\scripts\testelista.script /L..\produto\TesteLista
-
+	    TESTELISTA.exe/s..\scripts\testelista /l..\produto\TesteLista
 2. Execute o batch Testa.bat da pasta batches. Ele executará o teste de um dos módulos a
    partir de seu script. Para isso, deve-se usar a seguinte sintaxe: 
 	
 	Testa.bat  <NomePrograma> <NomeScript> [l].
    
    Exemplo: Testa.bat TESTEPECA testepeca
-   
+   	     
    Se for passado [l], será gerado o arquivo .log do arquivo testado, na pasta Produtos.
 
 3. Execute o batch TestaTudo.bat da pasta batches. Ele executará os testes dos módulos lista, peca 
    e tabuleiro a partir dos scripts testelista.script, testepeca.script e testetebuleiro.script, 
    respectivamente. Também irá gerar:
 
-   - os relatórios dos testes (.log) respectivos: TesteLista.log, TestePeca.log e TesteTabuleiro.log
+   - os relatórios dos testes (.log) respectivos: TESTELISTA.log, TESTEPECA.log e TESTETABULEIRO.log
      na pasta Produto;
    - o arquivo estatisticas.estat na pasta Scripts, se o executável exbestat existir e estiver na 
      pasta correta (Veja seção seguinte: compilação através dos batches);
@@ -155,8 +154,8 @@ Studio para rodar os batches. Os batches disponibilizados são os seguintes:
 		gera os arquivos .obj correspondentes.
 
 -CompilaTudo.bat: Compila todos os testes, de lista, peca e tabuleiro. Usa os respectivos
-                  arquivos make. Gera os error log (.err): TesteLista.err, TestePECA.err e 
-		  Testetabuleiro.err, além de tudo.err, que mostra o resultado da compilação
+                  arquivos make. Gera os error log (.err): TESTELISTA.err, TESTEPECA.err e 
+		  TESTETABULEIRO.err, além de tudo.err, que mostra o resultado da compilação
 		  de todos os construtos na pasta Produto.
  
 -GeraMake.bat: 	Gera os scripts de make a partir dos arquivos de composição dos construtos
@@ -173,7 +172,7 @@ Studio para rodar os batches. Os batches disponibilizados são os seguintes:
 		a pasta "ferramnt", limpa todos os arquivos que podem ser gerados através da
 		compilação/teste dos módulos. Nesse caso, após a execução a pasta Objetos 
 		deverá conter apenas ArcaboucoTeste.lib; a pasta Produto deverá estar vazia;
-		a pasta Composicao deverá conter apenas os arquivos .comp e ??Gmake.parm?? e
+		a pasta Composicao deverá conter apenas os arquivos .comp e Gmake.parm e
 		a pasta Scripts não deverá conter arquivos .estat.
 		Caso não haja a pasta "ferramnt", o batch elimina apenas os arquivos .log que
 		tenham sido gerado nos testes, mantendo os executaveis.
