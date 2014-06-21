@@ -13,7 +13,7 @@
 *  
 *  $HA Histórico de evolução: 
 *     Versão  Autor    Data     Observações
-*     1       hs/mr/rh   30/abril/2014    implementação parcial do jogo
+*     2       hs/mr/rh   17/junho/2014    implementação completa do jogo
 *  
 *  $CRE Créditos
 *    Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de 
@@ -27,8 +27,14 @@
 #include <ctype.h>
 #define peca_OWN
 #include "peca.h"
-#undef peca_OWN   
+#undef peca_OWN
 
+#ifdef _DEBUG
+#include "generico.h"
+#include "conta.h"
+#include "cespdin.h"
+#include "tipos.h"
+#endif
 
 /***********************************************************************
 *
@@ -51,10 +57,34 @@ typedef struct _Peca {
 Peca *PEC_criar(PecaTipo tipo, char caracter)
 {
     Peca *peca = (Peca*)malloc(sizeof(Peca));
-	if (peca==NULL)
-		return NULL;
+    //Assertivas de entrada
+#ifdef _DEBUG    
+    if( tipo != PecaNormal && tipo != PecaDama)
+        printf("\n Tipo da peca não condiz com qualquer tipo existente (PEC_criar) \n");
+    
+#endif
+
+    //Tratamento de espaço dinamico
+#ifdef _DEBUG
+    CED_DefinirTipoEspaco(peca, PEC_Peca);
+#endif
+    
+    if(peca == NULL)
+        return NULL;
+
     PEC_setarTipo(peca, tipo);
     PEC_setarCaracter(peca, tolower(caracter));
+    //Assertiva de saída
+#ifdef _DEBUG
+    if(peca->caracter != caracter)
+        printf("\n A criação da peça não atribuiu o valor correto do caracter \n");
+    if(peca->tipo != tipo)
+        printf("\n A criação da peça não atribuiu o valor correto de tipo \n");
+    if(!peca)
+        printf("\n Não foi possível alocar memoria para peca (PEC_criar) \n");
+#endif
+
+
     return peca;
 }/* Fim função: PEC  &Criar uma peça */
 
@@ -63,12 +93,13 @@ Peca *PEC_criar(PecaTipo tipo, char caracter)
 *
 *  Função: PEC  &Destruir uma determinada peça
 *  ****/
-void PEC_destruir(Peca *peca)
+PEC_tpCondRet PEC_destruir(Peca *peca)
 {
-	#ifdef _DEBUG
-       assert(peca);
-    #endif  
-	free(peca);
+    //Assertiva de entrada
+    if(!peca)
+        return PEC_CondRetPecaVazia;
+    free(peca);
+    return PEC_CondRetOK;
 }/* Fim função: PEC  &Destruir uma determinada peça */
 
 
@@ -78,9 +109,11 @@ void PEC_destruir(Peca *peca)
 *  ****/
 void PEC_imprimir(Peca *peca)
 {
-	#ifdef _DEBUG
-       assert(peca);
-	#endif  
+    //Assertiva de entrada
+#ifdef _DEBUG
+    if(peca->tipo == PecaErro)
+        printf("\n peca vazia (PEC_imprimir) \n");
+#endif
     if(peca->tipo == PecaNormal)
         printf("%c|", peca->caracter);
     else
@@ -94,9 +127,18 @@ void PEC_imprimir(Peca *peca)
 *  ****/
 PecaTipo PEC_obterTipo(Peca *peca)
 {
-	#ifdef _DEBUG 
-       assert(peca);
-	#endif 
+    //Assertivas de entrada
+#ifdef _DEBUG
+    if(peca->tipo == PecaErro){
+        printf("peca vazia (PEC_imprimir)");
+      
+    }
+    if( peca->tipo != PecaNormal && peca->tipo != PecaDama){
+        printf("\n Tipo da peca não condiz com qualquer tipo existente (PEC_obterTipo) \n");
+      
+    }
+#endif
+
     return peca->tipo;
 }/* Fim função: PEC  &Obter tipo de uma determinada peça */
 
@@ -105,13 +147,16 @@ PecaTipo PEC_obterTipo(Peca *peca)
 *
 *  Função: PEC  &Setar tipo de uma determinada  peça
 *  ****/
-void PEC_setarTipo(Peca *peca, PecaTipo tipo)
+PEC_tpCondRet PEC_setarTipo(Peca *peca, PecaTipo tipo)
 {
-	#ifdef _DEBUG 
-       assert(peca);
-       assert(tipo == PecaNormal || tipo == PecaDama);
-	#endif
+    if(!peca)
+        return PEC_CondRetPecaVazia;
+
+    if(tipo != PecaNormal && tipo != PecaDama)
+        return PEC_CondRetTipoInexistente;
+
     peca->tipo = tipo;
+    return PEC_CondRetOK;
 }/* Fim função: PEC  &Setar tipo de uma determinada peça */
 
 
@@ -121,10 +166,15 @@ void PEC_setarTipo(Peca *peca, PecaTipo tipo)
 *  ****/
 char PEC_obterCaracter(Peca *peca)
 {
-	#ifdef _DEBUG
-       assert(peca);
-    #endif                                    
-	return peca->caracter;
+    //Assertivas de entrada
+#ifdef _DEBUG
+    if(peca->tipo == PecaErro) {
+        printf("\n peca vazia (PEC_obterCaracter) \n");
+        
+    }
+#endif
+
+    return peca->caracter;
 }/* Fim função: PEC  &Obter caracter identificador de uma determinada peça */
 
 
@@ -132,13 +182,15 @@ char PEC_obterCaracter(Peca *peca)
 *
 *  Função: PEC  &Setar caracter identificador de uma determinada  peça
 *  ****/
-void PEC_setarCaracter(Peca *peca, char caracter)
+PEC_tpCondRet PEC_setarCaracter(Peca *peca, char caracter)
 {
-	#ifdef _DEBUG
-       assert(peca);
-	#endif
-	caracter=tolower(caracter);
+    //Assertivas de entrada
+    if(!peca)
+        return PEC_CondRetPecaVazia;
+
+    caracter = tolower(caracter);
     peca->caracter = caracter;
+    return PEC_CondRetOK;
 }/* Fim função: PEC  &Setar caracter identificador de uma determinada  peça */
 
 /********** Fim do módulo de definição: PEC Peca **********/

@@ -1,4 +1,3 @@
-
 /***************************************************************************
 *
 *  $MCD M√≥dulo de defini√ß√£o: LIS  Lista duplamente encadeada
@@ -11,7 +10,7 @@
 *
 *  $HA Hist√≥rico de evolu√ß√£o: 
 *     Vers√£o  Autor    Data     Observa√ß√µes
-*     1       hs/mr/rh   30/abril/2014    implementa√ß√£o parcial do jogo
+*     2       hs/mr/rh   17/junho/2014    implementaÁ„o completa do jogo
 *    
 *  
 *  $ED Descri√ß√£o do m√≥dulo
@@ -44,22 +43,22 @@
 *
 *  $CRE Cr√©ditos
 *    Arndt von Staa. Programa AutoTest - Arcabou√ßo para a automa√ß√£o de testes de 
-		 programas redigidos em C; m√≥dulo Lista Duplamente Encadeada
+         programas redigidos em C; m√≥dulo Lista Duplamente Encadeada
 ***************************************************************************/
 #ifndef LISTA_
 #define LISTA_
- 
+
 #ifdef LISTA_OWN
-   #define LISTA_EXT
+#define LISTA_EXT
 #else
-   #define LISTA_EXT extern
+#define LISTA_EXT extern
 #endif
 
 /***** Declara√ß√µes exportadas pelo m√≥dulo *****/
 
 /* Tipo refer√™ncia para uma lista */
 
-typedef struct LIS_tagLista *LIS_tppLista ;
+typedef struct LIS_tagLista *LIS_tppLista;
 
 /***********************************************************************
 *
@@ -73,11 +72,54 @@ typedef struct LIS_tagLista *LIS_tppLista ;
 
 typedef enum {
     LIS_CondRetOK, /* Concluiu corretamente */
-    LIS_CondRetListaVazia, /* A lista n√£o cont√©m elementos */
+    LIS_CondRetListaVazia, /* A lista n„o contÈm elementos */
     LIS_CondRetFimLista, /* Foi atingido o fim de lista */
-    LIS_CondRetNaoAchou, /* N√£o encontrou o valor procurado */
-    LIS_CondRetFaltouMemoria /* Faltou mem√≥ria ao tentar criar um elemento de lista */
+    LIS_CondRetNaoAchou, /* N„o encontrou o valor procurado */
+    LIS_CondRetFaltouMemoria, /* Faltou memÛria ao tentar criar um elemento de lista */
+    LIS_CondRetErroEstrutura /* Estrutura da lista est· errada */
 } LIS_tpCondRet;
+
+/***********************************************************************
+*
+*  $TC Tipo de dados: LIS Modos de deturpar
+*
+*
+***********************************************************************/
+
+#ifdef _DEBUG
+
+typedef enum {
+    LIS_EliminarElemento,
+    /* elimina o elemento corrente da lista */
+    LIS_DeturpaProximoNulo,
+    /* atribui NULL ao ponteiro para o prÛximo nÛ*/
+    LIS_DeturpaAnteriorNulo,
+    /* atribui NULL ao ponteiro para o nÛ anterior */
+    LIS_DeturpaProximoLixo,
+    /* atribui lixo ao ponteiro para o prÛximo nÛ */
+    LIS_DeturpaAnteriorLixo,
+    /* atribui lixo ao ponteiro o nÛ anterior */
+    LIS_DeturpaConteudoNulo,
+    /* atribui NULL ao ponteiro para o conte˙do do nÛ */
+    LIS_DeturpaTipoNo,
+    /* altera o tipo de estrutura apontado no nÛ */
+    LIS_LiberaSemFree,
+    /* desencadeia nÛ sem liber·-lo com free */
+    LIS_PonteiroCorrenteNulo,
+    /* atribui NULL ao ponteiro corrente */
+    LIS_PonteiroOrigemNulo,
+    /* atribui NULL ao ponteiro de origem. */
+    LIS_PonteiroFimNulo,
+    /* atribui NULL ao ponteiro de fim de lista */
+	LIS_NumeroElementosNegativo,
+	/* Faz o n˙mero de elementos indicado na cabeÁa ficar negativo */
+	LIS_NumeroElementosNulo,
+	/* Faz o n˙mero de elementos indicado na cabeÁa ser zero */
+	LIS_DeturpaNumeroElementos
+	/* Faz o n˙mero de elementos indicado na cabeÁa n„o corresponder ao n˙mero correto */
+} LIS_tpModosDeturpacao;
+
+#endif
 
 /***********************************************************************
 *
@@ -87,7 +129,7 @@ typedef enum {
 *     Cria uma lista gen√©rica duplamente encadeada.
 *     Os poss√≠veis tipos s√£o desconhecidos a priori.
 *     A tipagem √© implicita.
-*     N√£o existe identificador de tipo associado √† lista.
+*     N√£o existe identificador de tipo associado √  lista.
 *
 *  $EP Par√¢metros
 *      $P ExcluirValor  - ponteiro para a fun√ß√£o que processa a
@@ -191,7 +233,7 @@ LIS_tpCondRet LIS_InserirElementoApos(LIS_tppLista pLista, void *pValor);
 *  $ED Descri√ß√£o da fun√ß√£o
 *     Exclui o elemento corrente da lista dada.
 *     Se existir o elemento aa esquerda do corrente ser√° o novo corrente.
-*     Se n√£o existir e existir o elemento √† direita, este se tornar√° corrente.
+*     Se n√£o existir e existir o elemento √  direita, este se tornar√° corrente.
 *     Se este tamb√©m n√£o existir a lista tornou-se vazia.
 *
 *  $EP Par√¢metros
@@ -351,6 +393,45 @@ LIS_tpCondRet LIS_AvancarElementoCorrente(LIS_tppLista pLista, int numElem);
 ***********************************************************************/
 
 LIS_tpCondRet LIS_ProcurarValor(LIS_tppLista pLista, void *pValor);
+
+#ifdef _DEBUG
+/***********************************************************************
+*
+*  $FC FunÁ„o: LIS  &Verificar uma lista
+*
+*  $ED DescriÁ„o da funÁ„o
+*     FunÁ„o da interface de teste.
+*     Verifica completamente uma determinada lista.
+*  $FV Valor retornado
+*	  Retorna LIS_CondRetOK, caso n„o encontre falhas na estrutura, ou
+*     LIS_CondRetErroEstrutura, caso contr·rio
+***********************************************************************/
+
+LIS_tpCondRet LIS_VerificarLista(LIS_tppLista pCabeca);
+
+/***********************************************************************
+*
+*  $FC Fun√ß√£o: LIS  &Deturpar lista
+*
+*  $ED Descri√ß√£o da fun√ß√£o
+*	  Fun√ß√£o da interface de teste.
+*     Corrompe elementos espec√≠ficos da estrutura da lista.
+*     Essa fun√ß√£o destina-se a preparar os cen√°rios de teste dos
+*     casos de teste utilizados ao testar os verificadores estruturais
+*     da lista.
+*     Esta fun√ß√£o n√£o tem prote√ß√£o contra erros de uso, consequentemente
+*     poder√° levar o programa a ser cancelado pelo sistema operacional.
+*
+*  $EP Par√¢metros
+*     $P pLista       - lista a ser deturpada
+*     $P ModoDeturpar - identifica como deve ser feita a deturpa√ß√£o
+*                       LIS_tpModosDeturpacao identifica os modos de
+*                       deturpa√ß√£o conhecidos
+*
+***********************************************************************/
+void LIS_Deturpar(LIS_tppLista pLista, LIS_tpModosDeturpacao ModoDeturpar);
+
+#endif
 
 #undef LISTA_EXT
 

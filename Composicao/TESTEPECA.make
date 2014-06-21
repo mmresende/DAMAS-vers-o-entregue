@@ -64,7 +64,8 @@ $(Fobj)\testpeca.obj :  {$(Pc)}\testpeca.c \
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\peca.obj :  {$(Pc)}\peca.c \
-    {$(Ph)}peca.h              
+    {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}generico.h           {$(Ph)}peca.h               {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 

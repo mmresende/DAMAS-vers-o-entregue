@@ -47,7 +47,7 @@ INCLUDE = $(INCLUDE);$(PDEFAULT)
 ### Regras de geração
 
 all : limpa \
-   $(Fobj)\TestLista.obj   $(Fobj)\Lista.obj \
+   $(Fobj)\testLista.obj   $(Fobj)\lista.obj \
    Construto
 
 ### Limpar arquivos
@@ -59,19 +59,20 @@ limpa :
 
 ### Dependências de módulos objeto a compilar
 
-$(Fobj)\TestLista.obj :  {$(Pc)}\TestLista.c \
+$(Fobj)\testLista.obj :  {$(Pc)}\testLista.c \
     {$(Ph)}lista.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
-$(Fobj)\Lista.obj :  {$(Pc)}\Lista.c \
-    {$(Ph)}lista.h             
+$(Fobj)\lista.obj :  {$(Pc)}\lista.c \
+    {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}generico.h           {$(Ph)}lista.h              {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 
 ### Terminação
 
 Construto : \
-   $(Fobj)\TestLista.obj   $(Fobj)\Lista.obj
+   $(Fobj)\testLista.obj   $(Fobj)\lista.obj
     cd $(Fobj)
     LINK $(L) @$(NOME).build >> $(Ferr)\$(NOME).err
 

@@ -1,5 +1,5 @@
 @ECHO  OFF
-REM  Gera, Compila e testa os módulos lista, peca e tabuleiro
+REM  Gera, Compila e testa os módulos lista, peca e tabuleiro, além do programa executável DAMAS.exe
 
 if exist TestaTudo.bat goto faz
 rem >>> esta' no diretorio ilegal

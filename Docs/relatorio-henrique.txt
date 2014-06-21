@@ -39,3 +39,28 @@ Data: 27/04/2014
   Horas Trabalhadas: 30min
   Tipo Tarefa: codificar módulo
   Descrição da Tarefa Realizada: Criar TAB_setarPeca e colocar no teste
+
+Data: 25/05/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar módulo jogo e adicionar função de mover peças
+
+Data: 01/06/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Criar função TAB_verificaVencedor
+
+Data: 17/06/2014
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Terminar códigos ligados a funcionalidade do damas
+
+Data: 18/06/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Correção de alguns bugs da jogabilidade do damas, funções de deturpação, correção do uso do cespdin para detectar leaks no final da execução do damas
+
+Data: 20/06/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: codificar módulo
+  Descrição da Tarefa Realizada: Modificar os CNT_CONTAR das funções verificadoras para garantir a cobertura de arestas

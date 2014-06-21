@@ -35,6 +35,14 @@ if exist ..\Fontes\LERPARM.h  goto next8
 echo Falta LERPARM.h
 
 :next8
+if exist ..\Fontes\Cespdin.h  goto next9
+echo Falta Cespdin.h
+
+:next9
+if exist ..\Fontes\Conta.h  goto next10
+echo Falta Conta.h
+
+:next10
 if exist ..\Composicao\Gmake.parm goto sai
 echo Falta Gmake.parm
 

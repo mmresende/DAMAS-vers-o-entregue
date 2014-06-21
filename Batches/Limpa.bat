@@ -13,6 +13,8 @@ if exist ..\ferramnt goto LimpaTudo
 
 cd ..\Produto
 del *.log
+del RegistroContadoresComDeturpacoes.txt
+del RegistroContadoresSemDeturpacoes.txt
 
 cd..\Scripts
 del *.estat
@@ -48,6 +50,11 @@ del *.err
 del TESTELISTA.exe
 del TESTEPECA.exe
 del TESTETABULEIRO.exe
+del TESTETABULEIRODEBUG.exe
+del DAMAS.exe
+del DAMASDEBUG.exe
+del RegistroContadoresComDeturpacoes.txt
+del RegistroContadoresSemDeturpacoes.txt
 
 cd ..\Scripts
 del *.bak

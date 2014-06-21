@@ -61,19 +61,23 @@ limpa :
 ### Dependências de módulos objeto a compilar
 
 $(Fobj)\testtabuleiro.obj :  {$(Pc)}\testtabuleiro.c \
-    {$(Ph)}peca.h               {$(Ph)}tabuleiro.h         
+    {$(Ph)}cespdin.h            {$(Ph)}peca.h               {$(Ph)}tabuleiro.h         
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\tabuleiro.obj :  {$(Pc)}\tabuleiro.c \
-    {$(Ph)}lista.h              {$(Ph)}peca.h               {$(Ph)}tabuleiro.h         
+    {$(Ph)}TST_ESPC.h           {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            \
+    {$(Ph)}conta.h              {$(Ph)}generico.h           {$(Ph)}lista.h              \
+    {$(Ph)}peca.h               {$(Ph)}tabuleiro.h          {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\lista.obj :  {$(Pc)}\lista.c \
-    {$(Ph)}lista.h             
+    {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}generico.h           {$(Ph)}lista.h              {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 $(Fobj)\peca.obj :  {$(Pc)}\peca.c \
-    {$(Ph)}peca.h              
+    {$(Ph)}TST_Espc.h           {$(Ph)}cespdin.h            {$(Ph)}conta.h              \
+    {$(Ph)}generico.h           {$(Ph)}peca.h               {$(Ph)}tipos.h             
    cl $(O) $(OPT) /Fo$(Fobj)\ $(Fc)\$(@B).c >> $(Ferr)\$(NOME).err
 
 

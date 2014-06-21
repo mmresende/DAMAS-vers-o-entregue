@@ -8,12 +8,16 @@
 =declararparm   tabuleiro1  int 1
 =declararparm	tabuleiro2  int	2  
 
-=declararparm   colunaA    string  "a"
-=declararparm   colunaB    string  "b"
+=declararparm   colunaA     string  "a"
+=declararparm   colunaB     string  "b"
 
-=declararparm   pNULL          int  0
-=declararparm   pNaoNULL       int  1
+=declararparm   pNULL       int  0
+=declararparm   pNaoNULL    int  1
 
+=declararparm OK      	       	   int 0
+=declararparm TabuleiroInexistente int 1
+=declararparm LinhaInexistente     int 2
+=declararparm ColunaInexistente    int 3
 
 == Criar o tabuleiro 0 
 =criartabuleiro      tabuleiro0
@@ -28,7 +32,7 @@
 =obtercasa    tabuleiro0   2 colunaB pNULL
 
 ==destruir tabuleiro 0  
-=destruirtabuleiro   tabuleiro0
+=destruirtabuleiro   tabuleiro0 OK
 
 ==Criar dois tabuleiros  
 =criartabuleiro      tabuleiro0
@@ -152,10 +156,10 @@
 =obtercasa    tabuleiro1   3 "j"     pNULL
 
 ==Verificar setar casa
-=setarcasa    tabuleiro1   1 "a"
+=setarcasa    tabuleiro1   1 "a" OK
 =obtercasa    tabuleiro1   1 "a" pNaoNULL
 
-=setarcasa    tabuleiro1   1 "b"
+=setarcasa    tabuleiro1   1 "b" OK
 =obtercasa    tabuleiro1   1 "b" pNaoNULL
 
 ==Verificar remover peca
@@ -168,38 +172,38 @@
 ==Mover peca da linha 2, coluna g para linha 3,coluna h
 =obtercasa   tabuleiro1	   2 "g" pNaoNULL
 =removerpeca tabuleiro1    2 "g"
-=setarcasa   tabuleiro1    3 "h"
+=setarcasa   tabuleiro1    3 "h" OK
 =obtercasa   tabuleiro1    2 "g" pNULL
 =obtercasa   tabuleiro1    3 "h" pNaoNULL
 
 ==Criar peca no tabuleiro 0, nao inicializado
-=setarcasa   tabuleiro0    1 colunaA
+=setarcasa   tabuleiro0    1 colunaA OK
 =obtercasa   tabuleiro0    1 colunaA pNaoNULL
 
 ==Mover peca pelo tabuleiro 0
 =removerpeca tabuleiro0    1 colunaA
-=setarcasa   tabuleiro0    2 colunaB
+=setarcasa   tabuleiro0    2 colunaB OK
 =obtercasa   tabuleiro0    1 colunaA pNULL
 =obtercasa   tabuleiro0    2 colunaB pNaoNULL
 
 =removerpeca tabuleiro0    2 colunaB
-=setarcasa   tabuleiro0    3 colunaA
+=setarcasa   tabuleiro0    3 colunaA OK
 =obtercasa   tabuleiro0    2 colunaB pNULL
 =obtercasa   tabuleiro0    3 colunaA pNaoNULL
 
 =removerpeca tabuleiro0    3 colunaA
-=setarcasa   tabuleiro0    4 colunaB
+=setarcasa   tabuleiro0    4 colunaB OK
 =obtercasa   tabuleiro0    3 colunaA pNULL
 =obtercasa   tabuleiro0    4 colunaB pNaoNULL
 
 =removerpeca tabuleiro0    4 colunaB
-=setarcasa   tabuleiro0    8 "h"
+=setarcasa   tabuleiro0    8 "h"     OK
 =obtercasa   tabuleiro0    4 colunaB pNULL
 =obtercasa   tabuleiro0    8 "h"     pNaoNULL
 
 ==mover peca para casa inexistente
 =removerpeca tabuleiro0    8 "h"
-=setarcasa   tabuleiro0    9 "h"
+=setarcasa   tabuleiro0    9 "h"     LinhaInexistente
 =obtercasa   tabuleiro0    8 "h"     pNULL
 =obtercasa   tabuleiro0    9 "h"     pNULL
 
@@ -208,11 +212,11 @@
 =obtercasa   tabuleiro0    9 "h"     pNULL
 
 ==destruir tabuleiros  
-=destruirtabuleiro   tabuleiro0
-=destruirtabuleiro   tabuleiro1
+=destruirtabuleiro   tabuleiro0 OK
+=destruirtabuleiro   tabuleiro1 OK
 
 ==destruir tabuleiro  inexistente
-=destruirtabuleiro   tabuleiro2
-=recuperar
+=destruirtabuleiro   tabuleiro2 TabuleiroInexistente
+				
 
 // fim

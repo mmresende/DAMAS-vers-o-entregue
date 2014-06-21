@@ -65,3 +65,43 @@ Data: 1/05/2014
   Horas Trabalhadas: 6h
   Tipo Tarefa: revisar scripts de teste, realizar os testes, diagnosticar e corrigir problemas encontrados
   Descrição da Tarefa Realizada: Expandir os scripts de lista, peca e tabuleiro. Resolver pequeno problema envolvendo letras maiusculas em peca.c
+
+Data: 5/06/2014
+  Horas Trabalhadas: 30 min
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Criar arquivos .comp e fazer as necessárias modificações nos batches para compilar o jogo de damas 
+
+  Horas Trabalhadas: 1h30min
+  Tipo Tarefa: estudar
+  Descrição da Tarefa Realizada: estudar a pasta instrum do arcabouco, bem como o modulo CESPDIN
+
+Data: 8/06/2014
+  Horas Trabalhadas: 15 min
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Início instrumentação
+
+Data:13/06/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Fazer função verificadora
+
+Data:15/06/2014
+  Horas Trabalhadas: 6h
+  Tipo Tarefa: revisar projetos
+  Descrição da Tarefa Realizada: fazer correções no código, início scripts de teste
+
+Data:18/06/2014
+  Horas Trabalhadas: 8h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Acabar função verificadora, scripts de teste
+
+Data:19/06/2014
+  Horas Trabalhadas: 12h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: arquivos batches e comp para compilação
+
+
+Data:20/06/2014
+  Horas Trabalhadas: 12h
+  Tipo Tarefa: projetar
+  Descrição da Tarefa Realizada: Colocar program em formato final

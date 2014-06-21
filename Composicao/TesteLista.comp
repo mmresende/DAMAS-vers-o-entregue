@@ -11,8 +11,8 @@ c           =  ..\Fontes
 h           =  ..\Fontes
 
 [Modulos]
-TestLista.c
-Lista.c
+testLista.c
+lista.c
 
 [BuildInicio]
 /OUT:..\produto\TESTELISTA.exe

@@ -13,7 +13,7 @@
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    				Data     Observações
-*     1       Henrique Santiago   13/abr/2014 início desenvolvimento
+*     2       hs/mr/rh   17/junho/2014    implementação completa do jogo
 *
 *  $CRE Créditos
 *     Arndt von Staa. Programa AutoTest - Arcabouço para a automação de testes de

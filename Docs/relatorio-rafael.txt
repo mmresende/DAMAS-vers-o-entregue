@@ -18,7 +18,48 @@ Data: 25/04/2014
 Data: 26/04/2014
   Horas Trabalhadas: 3/2h
   Tipo Tarefa:  especificar as funções, especificar módulos 
-  Descrição da Tarefa Realizada: documentar peca.c peca.h e reajustar diagrama.
+  Descrição da Tarefa Realizada: documentar peca.c peca.h e reajustar diagrama.h
+Data: 28/04/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: especificar as funcoes
+  Descrição da Tarefa: gerar modelo e exemplo físico
+
+Data: 22/04/2014
+  Horas Trabalhadas: 2h 
+  Tipo Tarefa: revisar projetos
+  Descrição da Tarefa: restruturacao de testes, módulo tabuleiro e pecas
+
+Data: 9/06/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: estudar
+  Descrição da Tarefa: estudar CONTA
 
 
+Data: 10/06/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: estudar
+  Descrição da Tarefa: estudar instrumentações
 
+Data: 16/06/2014
+  Horas Trabalhadas: 2h
+  Tipo Tarefa: especificar modulo
+  Descrição da Tarefa: especificar jogo.c e jogo.h
+
+
+Data: 17/06/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: especificar modulo
+  Descrição da Tarefa: gerar pdf da arquitetura  verificavel
+
+
+Data: 17/06/2014
+  Horas Trabalhadas: 3h
+  Tipo Tarefa: assertivas
+  Descrição da Tarefa: gerar assertivas de entrada e saida e
+  tratamenos de exceção em cada função
+
+
+Data: 19/06/2014
+  Horas Trabalhadas: 1h
+  Tipo Tarefa: revisar especificaçoes
+  Descrição da Tarefa: modificar detalhes na arquitetura e especificaçao
